@@ -1,5 +1,5 @@
 //this is the home component - the home page of the application
-import "./Home.css"; // importing the stylesheet for the home component
+import "../css/Home.css"; // importing the stylesheet for the home component
 
 function Home() {
   return (
