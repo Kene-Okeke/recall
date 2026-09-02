@@ -39,6 +39,7 @@
   font-family: "Special Elite", cursive;
   font-size: 27px;
   margin-top: -10px;
+  font-weight: bolder;
 }
 
 .streakWrapper {
@@ -49,7 +50,7 @@
   padding-top: 18px;
   padding-bottom: 18px;
   margin-top: 12px;
-  margin-left: 23px;
+  margin-left: 20px;
   border-radius: 15px;
 }
 
@@ -60,6 +61,7 @@
   padding-left: 15px;
   padding-top: 2px;
   font-weight: bold;
+  text-shadow: 0 0 6px rgba(232, 163, 61, 0.55);
 }
 
 .streakRightText h2 {
@@ -97,9 +99,129 @@
 
 .queueText {
   display: flex;
-  padding-left: 24px;
+  padding-left: 20px;
   font-family: "JetBrains Mono", monospace;
-  padding-top: 28px;
+  padding-top: 25px;
   color: #5a4e3e;
   font-weight: bold;
+}
+
+.queueLine {
+  flex: 1;
+  border-top: 1px dashed #5a4e3e;
+  opacity: 0.3;
+  margin: 10px 10px;
+  max-width: 275px;
+  width: 100%;
+}
+
+.queueItemContainer {
+  position: relative;
+  background: #fffdf7; /* --white */
+  border: 1px dashed #b2412e; /* --rust */
+  border-radius: 4px;
+  padding: 12px 14px 12px 26px;
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+  width: 375px;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+/* the punch-card notch */
+.queueItemContainer::before {
+  content: "";
+  position: absolute;
+  left: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #f3ead3; /* must match whatever sits BEHIND the card */
+  border: 1px dashed #b2412e;
+}
+
+.queueItemLeft {
+  display: flex;
+  flex-direction: column;
+}
+
+.queueCardTopic {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 16px;
+  font-weight: 900;
+  color: #2b221a; /* --ink */
+  margin: 0;
+  margin-right: 100px;
+}
+
+.categoryContflex {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 3px;
+}
+
+.queueCardCategory {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  color: #5a4e3e; /* --ink-soft */
+  margin: 0;
+}
+
+.queueCardLastAttempt {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10.5px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  color: #5a4e3e; /* --ink-soft */
+  margin: 0;
+}
+
+.queueItemRight {
+  flex-shrink: 0;
+}
+
+.queueLastScore {
+  font-family: "VT323", monospace;
+  font-size: 26px;
+  color: #8c2f20; /* --rust-dark */
+  margin: 0;
+  min-width: 44px;
+  text-align: right;
+}
+
+.addNewTopicButton {
+  background-color: #e8a33d;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #2b221a;
+  padding-top: 12px;
+  box-shadow: 3px 3px 0 #2b221a;
+  margin-top: 75px;
+  margin-left: 330px;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 45px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  gap: 80px;
+  border: none;
+  border-top: 1px dashed #8c2f20;
+}
+
+.footer span {
+  color: #5a4e3e;
 }
