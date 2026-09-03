@@ -9,7 +9,7 @@ function Home() {
       {/* these closures "<>" are used for react to capture and compose jsx */}
       <section className="homeContainer">
         <div className="userInformation">
-          <h1 className="userName"> LOAD USER:&nbsp;OKEKE_ </h1>
+          <h1 className="userName"> &gt; LOAD USER:&nbsp;OKEKE_ </h1>
           <h2 className="dueText">Due today</h2>
         </div>
         <div className="streakWrapper">
@@ -89,10 +89,22 @@ function Home() {
           <img src="src/assets/icons/add-icon.png" alt="Add Topic" />
         </div>
         <section className="footer">
-          <span className="homeIcon">[■]</span>
-          <span className="ItemsIcon">[≡]</span>
-          <span className="AddIcon">[+]</span>
-          <span className="StatsIcon">[▲]</span>
+          <div className="homefooterContainer">
+            <div classname="homeIcon">[■]</div>
+            <div classname="homeText">HOME</div>
+          </div>
+          <div className="itemsContainer">
+            <div classname="itemsIcon">[≡]</div>
+            <div classname="itemsText">ITEMS</div>
+          </div>
+          <div className="addContainer">
+            <div classname="addIcon">[+]</div>
+            <div classname="addText">ADD</div>
+          </div>
+          <div className="statsContainer">
+            <div classname="statsIcon">[▲]</div>
+            <div classname="statsText">STATS</div>
+          </div>
         </section>
       </section>
     </>

@@ -1,12 +1,9 @@
 /* Mobile Styles */
-@import url("https://fonts.googleapis.com/css2?family=Special+Elite&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Special+Elite&family=VT323&display=swap");
 
 .homeContainer {
   display: flex;
   flex-direction: column;
-  height: 98vh;
+  height: 100vh;
   overflow: hidden;
   background-color: #fbf5e6;
   margin: 0;
@@ -26,9 +23,14 @@
   align-items: left;
   justify-content: left;
   color: #8c2f20;
-  font-size: 16px;
+  font-size: 13.5px;
   font-weight: bold;
   font-family: "JetBrains Mono", monospace;
+  padding-bottom: 15px;
+}
+
+.userInformation {
+  padding-top: 20px;
 }
 
 .userInformation h2 {
@@ -37,8 +39,9 @@
   align-items: left;
   justify-content: left;
   padding-left: 20px;
+
   font-family: "Special Elite", cursive;
-  font-size: 27px;
+  font-size: 30px;
   margin-top: -10px;
   font-weight: bolder;
 }
@@ -48,8 +51,8 @@
   background-color: #b2412e;
   max-width: 550px;
   width: 90%;
-  padding-top: 18px;
-  padding-bottom: 18px;
+  padding-top: 7px;
+  padding-bottom: 9px;
   margin-top: 12px;
   margin-left: 20px;
   border-radius: 15px;
@@ -57,7 +60,7 @@
 
 .streakNumber {
   font-family: "VT323", monospace;
-  font-size: 65px;
+  font-size: 67px;
   color: #e8a33d;
   padding-left: 15px;
   padding-top: 2px;
@@ -75,6 +78,8 @@
   justify-content: end;
   margin-top: 9px;
   margin-left: 270px;
+  padding-bottom: 5px;
+  padding-top: 13px;
 }
 
 .streakRightText h3 {
@@ -87,6 +92,7 @@
   justify-content: end;
   margin-top: -10px;
   margin-left: 240px;
+  padding-bottom: 9px;
 }
 
 .streakRightText h4 {
@@ -205,25 +211,56 @@
   border-width: 2px;
   border-style: solid;
   border-color: #2b221a;
-  padding-top: 12px;
+  padding-top: 8px;
   box-shadow: 3px 3px 0 #2b221a;
-  margin-top: 75px;
+  margin-top: 70px;
   margin-left: 330px;
+}
+
+.addNewTopicButton img {
+  padding-left: 16px;
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 
 .footer {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 20px;
-  padding-top: 15px;
-  padding-bottom: 5px;
-  margin-bottom: 0px;
-  gap: 80px;
-  border: none;
   border-top: 1px dashed #8c2f20;
+  gap: 70px;
+  margin-top: 40px;
+  color: #5a4e3e;
+  font-weight: 500;
+  padding-bottom: 15px;
+  padding-left: 37px;
+  padding-right: 22px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 14px;
 }
 
-.footer span {
-  color: #5a4e3e;
+.homefooterContainer {
+  padding-top: 7px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.itemsContainer {
+  padding-top: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.addContainer {
+  padding-top: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.statsContainer {
+  padding-top: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
