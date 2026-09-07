@@ -1,7 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Special+Elite&family=VT323&display=swap");
 
 :root {
-  --ink: #2b221a;
-  --paper: #f5f0e6;
-  ----accent: #e8a33d;
+  --creambackground: #f3ead3;
+  --paperbackground: #fbf5e6;
+  --mustardprimary: #e8a33d;
+  --mustard-darkpressed: #c6832a;
+  --rust: #b2412e;
+  --rust-darkpressed: #8c2f20;
+  --inktext: #2b221a;
+  --ink-softsecondarytext: #5a4e3e;
+  --whitecards: #fffdf7;
 }

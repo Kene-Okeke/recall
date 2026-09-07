@@ -1,11 +1,8 @@
 import "./App.css";
 
-import Home from "./pages/Home.jsx";
-
-import Welcome from "./pages/Welcome.jsx";
-
+import FirstRevScreen from "./pages/FirstRevScreen.jsx";
 function App() {
-  return <Home />;
+  return <FirstRevScreen />;
 }
 
 export default App;
