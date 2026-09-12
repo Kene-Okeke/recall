@@ -1,8 +1,8 @@
 import "./App.css";
 
-import LoginScr from "./pages/LoginScr.jsx";
+import SessionSize from "./pages/SessionSize.jsx";
 function App() {
-  return <LoginScr />;
+  return <SessionSize />;
 }
 
 export default App;

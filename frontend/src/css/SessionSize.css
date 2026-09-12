@@ -1,0 +1,120 @@
+.mainContainer {
+  padding: 14px 18px 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: none;
+  background: var(--paperbackground);
+  padding-top: 50px;
+  padding-left: 20px;
+}
+
+.sessionText {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 15px;
+  font-weight: bold;
+  color: #8c2f20; /* rust-dark */
+  letter-spacing: 0.5px;
+  margin: 0 0 4px;
+}
+
+.perSessionText {
+  font-family: "Special Elite", monospace;
+  font-size: 29px;
+  line-height: 1.15;
+  color: #2b221a; /* ink */
+  margin: 0 0 14px;
+  font-weight: bold;
+}
+
+.mainContainer > span {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  color: #5a4e3e; /* ink-soft */
+  margin-top: -8px;
+}
+
+.numberStackCont {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.numberCont {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 18px 0;
+}
+
+.numberRow {
+  flex: 1;
+  min-width: 60px;
+  text-align: center;
+  padding: 16px 0;
+  border-radius: 8px;
+  font-family: "VT323", monospace;
+  font-size: 29px;
+  border: 2px solid #2b221a;
+  background: #fffdf7; /* white */
+  color: #5a4e3e; /* ink-soft */
+  cursor: pointer;
+}
+
+.numberRow.selected {
+  background: #e8a33d; /* mustard */
+  color: #2b221a;
+  box-shadow: 3px 3px 0 #2b221a;
+}
+
+.amountForm {
+  max-width: 370px;
+  height: 15px;
+}
+
+.amountForm input {
+  width: 100%;
+  background: #fffdf7;
+  border: 2px solid #2b221a;
+  border-radius: 8px;
+  padding: 20px 12px;
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  color: #2b221a;
+  outline: none;
+}
+
+.amountForm input::placeholder {
+  color: var(--inktext);
+  opacity: 0.7;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.sessionContinue {
+  display: block;
+  max-width: 150%;
+  width: 115px;
+  text-align: center;
+  background: #b2412e; /* rust */
+  color: #fffdf7; /* white */
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: 14px;
+  padding: 27px 10px;
+  border-radius: 8px;
+  border: none;
+  margin-top: 150px;
+  margin-left: 10px;
+  margin-bottom: 14px;
+  box-shadow: 3px 3px 0 #2b221a; /* ink offset shadow */
+  cursor: pointer;
+}
+
+.continueContainer {
+  margin-top: 290px;
+}

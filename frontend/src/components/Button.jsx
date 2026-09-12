@@ -1,11 +1,10 @@
 import "../css/Button.css";
 
-function Button({ children, onClick }) {
+function Button({ children, onClick, className }) {
   return (
-    <button className="mainButton" onClick={onClick}>
+    <button className={`mainButton ${className || ""}`} onClick={onClick}>
       {children}
     </button>
   );
 }
-
 export default Button;
