@@ -1,8 +1,8 @@
 import "./App.css";
 
-import SessionSize from "./pages/SessionSize.jsx";
+import FirstTopicScr from "./pages/FirstTopicScr.jsx";
 function App() {
-  return <SessionSize />;
+  return <FirstTopicScr />;
 }
 
 export default App;

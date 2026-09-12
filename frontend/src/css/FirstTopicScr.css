@@ -1,0 +1,94 @@
+.firstTopicContainer {
+  padding: 14px 18px 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background: var(--paperbackground);
+  height: 100vh;
+}
+
+.progressDots {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #5a4e3e;
+  opacity: 0.25;
+}
+
+.dot.active {
+  background: #b2412e;
+  opacity: 1;
+}
+
+.cardPrompt {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  font-weight: 700;
+  color: #8c2f20;
+  letter-spacing: 0.5px;
+  margin: 0 0 4px;
+}
+
+.cardTitle {
+  font-family: "Special Elite", monospace;
+  font-size: 26px;
+  line-height: 1.15;
+  color: #2b221a;
+  margin: 0 0 14px;
+}
+
+.stamp {
+  position: absolute;
+  top: 60px;
+  right: 24px;
+  border: 2px solid #b2412e;
+  color: #b2412e;
+  font-family: "Special Elite", monospace;
+  font-size: 11px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  transform: rotate(8deg);
+  opacity: 0.8;
+}
+
+.topicBox,
+.categoryBox {
+  margin-bottom: 16px;
+}
+
+.topicBox label,
+.categoryBox label {
+  display: block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #5a4e3e;
+  margin-bottom: 6px;
+}
+
+.topicBox input,
+.categoryBox input {
+  width: 90%;
+  background: #fffdf7;
+  border: 1px solid #2b221a;
+  border-bottom: 3px solid #b2412e;
+  border-radius: 4px;
+  padding: 15px;
+  font-family: "Special Elite", monospace;
+  font-size: 15px;
+  color: #2b221a;
+  outline: none;
+}
+
+.topicButton {
+  margin-top: 430px;
+  margin-left: 8px;
+}
