@@ -1,0 +1,33 @@
+.scheduleText {
+  font-family: "JetBrains Mono", monospace;
+  color: var(--rust-darkpressed);
+  font-weight: 600;
+  font-size: 15px;
+  padding-bottom: 5px;
+}
+
+.mainContainer {
+  background-color: var(--paperbackground);
+  height: 100vh;
+  overflow: hidden;
+  padding-top: 50px;
+  padding-bottom: 10px;
+  padding-left: 25px;
+  padding-right: 25px;
+  color: var(--inktext);
+}
+
+.scheduleQuestion {
+  font-family: "Special Elite", cursive;
+  font-size: 29px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--inktext);
+
+  padding-bottom: 30px;
+  word-spacing: 3px;
+}
+
+.buttonContainer {
+  padding-top: 40px;
+}

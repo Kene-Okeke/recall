@@ -1,0 +1,49 @@
+.dayRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fffdf7;
+  border: 1px dashed #5a4e3e;
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 15px;
+  font-weight: 700;
+  color: #5a4e3e;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.dayRow.active {
+  border: 1px solid #2b221a;
+  color: #2b221a;
+  background: #e8a33d;
+}
+
+.dayCheckbox {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  border: 2px solid #2b221a;
+  background: #fffdf7;
+  cursor: pointer;
+  position: relative;
+}
+
+.dayRow.active .dayCheckbox {
+  background: #b2412e;
+  border-color: #2b221a;
+}
+
+.dayCheckbox:checked::after {
+  content: "✓";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fffdf7;
+  font-size: 12px;
+}

@@ -1,8 +1,8 @@
 import "./App.css";
 
-import FirstRevScreen from "./pages/FirstRevScreen.jsx";
+import StudySchedule from "./pages/StudySchedule.jsx";
 function App() {
-  return <FirstRevScreen />;
+  return <StudySchedule />;
 }
 
 export default App;
