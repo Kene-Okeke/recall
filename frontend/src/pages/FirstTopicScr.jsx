@@ -40,8 +40,9 @@ function FirstTopicScr() {
           />
         </div>
       </form>
-
-      <Button className={"topicButton"}>ADD TOPIC →</Button>
+      <div className="topicCont">
+        <Button className={"topicButton"}>ADD TOPIC →</Button>
+      </div>
     </section>
   );
 }

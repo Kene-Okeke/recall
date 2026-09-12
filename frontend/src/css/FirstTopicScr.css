@@ -89,6 +89,10 @@
 }
 
 .topicButton {
-  margin-top: 430px;
+  padding-top: 10px;
   margin-left: 8px;
+}
+
+.topicCont {
+  margin-top: 278px;
 }
