@@ -1,0 +1,106 @@
+.mainContainer {
+  background: var(--paperbackground);
+  height: 90vh;
+  padding-top: 50px;
+  padding-left: 20px;
+}
+
+.welcomeText {
+  color: var(--rust-darkpressed);
+  font-weight: 600;
+  font-size: 15.5px;
+  font-family: "JetBrains Mono", monospace;
+}
+
+.logBackStatement {
+  font-family: "Special Elite", cursive;
+  color: var(--inktext);
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 1.2;
+  padding-top: 6px;
+}
+
+.accountForm {
+  padding: 0 4px;
+}
+
+.emailBox,
+.passwordBox {
+  margin-bottom: 16px;
+}
+
+.emailBox label,
+.passwordBox label {
+  display: block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #5a4e3e; /* ink-soft */
+  margin-bottom: 6px;
+}
+
+.emailBox input,
+.passwordBox input {
+  max-width: 100%;
+  width: 90%;
+  background: #fffdf7; /* white */
+  border: 1px solid #2b221a; /* ink */
+  border-bottom: 3px solid #b2412e; /* rust */
+  border-radius: 4px;
+  padding: 12px;
+  font-family: "Special Elite", monospace;
+  font-size: 15px;
+  color: #2b221a;
+  outline: none;
+  height: 22px;
+}
+
+.welcomeContainer {
+  padding-bottom: 20px;
+}
+
+.logInButtonCont {
+  margin-top: 385px;
+  display: block;
+}
+
+.logInButtonCont h2 {
+  text-align: center;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  font-weight: 400;
+  color: #5a4e3e; /* ink-soft */
+  margin: 0 0 18px;
+}
+
+.logInButtonCont h2 a {
+  color: #8c2f20; /* rust-dark */
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.signUpButtonCont h2 a:hover {
+  text-decoration: underline;
+}
+
+.forgotPassword {
+  display: block;
+  margin-left: 275px;
+  justify-content: right;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  padding-top: 5px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: #8c2f20; /* rust-dark */
+  text-decoration: none;
+}
+
+.forgotPassword:hover {
+  text-decoration: underline;
+}

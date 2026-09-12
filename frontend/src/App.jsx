@@ -1,8 +1,8 @@
 import "./App.css";
 
-import SignupScreen from "./pages/SignupScreen";
+import LoginScr from "./pages/LoginScr.jsx";
 function App() {
-  return <SignupScreen />;
+  return <LoginScr />;
 }
 
 export default App;
