@@ -1,8 +1,8 @@
 import "./App.css";
 
-import StudySchedule from "./pages/StudySchedule.jsx";
+import SignupScreen from "./pages/SignupScreen";
 function App() {
-  return <StudySchedule />;
+  return <SignupScreen />;
 }
 
 export default App;

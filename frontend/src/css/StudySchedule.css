@@ -4,6 +4,7 @@
   font-weight: 600;
   font-size: 15px;
   padding-bottom: 5px;
+  line-height: 1.2;
 }
 
 .mainContainer {
@@ -12,7 +13,7 @@
   overflow: hidden;
   padding-top: 50px;
   padding-bottom: 10px;
-  padding-left: 25px;
+  padding-left: 22px;
   padding-right: 25px;
   color: var(--inktext);
 }
