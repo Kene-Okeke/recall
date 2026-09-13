@@ -1,0 +1,42 @@
+.footer {
+  display: flex;
+  border-top: 1px dashed #8c2f20;
+  gap: 65px;
+  margin-top: 40px;
+  color: #5a4e3e;
+  font-weight: 500;
+  padding-bottom: 15px;
+  padding-left: 37px;
+  padding-right: 22px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 14px;
+}
+
+.homefooterContainer {
+  padding-top: 7px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.itemsContainer {
+  padding-top: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.addContainer {
+  padding-top: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.statsContainer {
+  padding-top: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

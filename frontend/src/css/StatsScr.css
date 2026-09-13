@@ -1,0 +1,144 @@
+.statsContainer {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  padding: 30px 28px 0; /* pick ONE padding declaration, delete the extra padding-left line below */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--paperbackground);
+  padding-top: 50px;
+}
+.recordContainer {
+  width: 100%;
+  margin-bottom: 10px;
+  padding-top: 10px;
+  box-sizing: border-box;
+
+  text-align: left;
+}
+
+.itemPrompt {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 15px;
+  font-weight: 700;
+  color: #8c2f20;
+  letter-spacing: 0.5px;
+  margin: 0 0 4px;
+  padding-top: 20px;
+}
+
+.itemTitle {
+  font-family: "Special Elite", monospace;
+  font-size: 35px;
+  color: #2b221a;
+  margin: 0;
+}
+
+.chartSection {
+  width: 100%;
+
+  margin-bottom: 10px;
+}
+
+.calendarRow {
+  width: 100%;
+  display: flex;
+  gap: 6px;
+  margin: 0 0 14px;
+}
+
+.dayCell {
+  flex: 1;
+  min-width: 0;
+  aspect-ratio: 1;
+
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9px;
+  font-weight: 700;
+
+  color: #5a4e3e;
+  border: 1px dashed #5a4e3e;
+  opacity: 0.5;
+}
+
+.dayCell.done {
+  background: #e8a33d;
+  border: 1px solid #2b221a;
+  color: #2b221a;
+  opacity: 1;
+}
+
+.dayCell.today {
+  background: #b2412e;
+  border: 1px solid #2b221a;
+  color: #fffdf7;
+  opacity: 1;
+}
+
+.terminalPanel {
+  width: 100%;
+  box-sizing: border-box;
+
+  background: #2b221a;
+  border-radius: 10px;
+  padding: 14px;
+  height: 350px;
+  color: #e8a33d;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  line-height: 1.9;
+}
+
+.statRow {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  font-size: 14px;
+}
+
+.statRow .dots {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0 6px;
+  opacity: 0.35;
+}
+
+.statValue {
+  flex-shrink: 0;
+  color: #fffdf7;
+}
+
+.footerCont {
+  margin-top: 135px;
+}
+
+.statsHard {
+  margin-top: 2px;
+  margin-left: -30px;
+}
+
+.sectionLabelRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 8px;
+}
+
+.sectionLabel {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: #5a4e3e;
+  margin: 0;
+  white-space: nowrap;
+  padding-bottom: 10px;
+}

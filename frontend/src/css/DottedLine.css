@@ -1,0 +1,7 @@
+.dottedLine {
+  flex: 1;
+  border-bottom-width: 1px;
+  border-bottom-style: dashed;
+  border-bottom-color: #5a4e3e;
+  opacity: 0.3;
+}

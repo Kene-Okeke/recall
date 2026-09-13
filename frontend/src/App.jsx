@@ -1,8 +1,8 @@
 import "./App.css";
 
-import FirstTopicScr from "./pages/FirstTopicScr.jsx";
+import StatsScr from "./pages/StatsScr.jsx";
 function App() {
-  return <FirstTopicScr />;
+  return <StatsScr />;
 }
 
 export default App;

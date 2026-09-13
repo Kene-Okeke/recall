@@ -1,4 +1,4 @@
-import "../css/firstreview.css";
+import "../css/FirstRevScreen.css";
 import ScoreSlider from "../components/ScoreSlider";
 
 function FirstRevScreen() {

@@ -91,12 +91,6 @@
   white-space: nowrap;
 }
 
-.dottedLine {
-  flex: 1;
-  border-bottom: 1px dashed #5a4e3e; /* ink-soft */
-  opacity: 0.3;
-}
-
 .scoreSlidercont {
   padding: 10px;
   margin-left: -5px;
@@ -224,4 +218,11 @@
 .completeReviewButton:active {
   box-shadow: none;
   transform: translate(3px, 3px);
+}
+
+/* components/DottedLine.css */
+.dottedLine {
+  flex: 1;
+  border-bottom: 1px dashed #5a4e3e;
+  opacity: 0.3;
 }
