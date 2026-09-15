@@ -1,7 +1,35 @@
 import "../css/LoginScr.css";
 import Button from "../components/Button.jsx";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function LoginScr() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const response = await fetch("/api/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    });
+
+    const data = await response.json();
+    console.log(data);
+
+    if (response.ok) {
+      navigate("/");
+    }
+  };
   return (
     <>
       <section className="mainContainer">
@@ -14,7 +42,7 @@ function LoginScr() {
         </section>
 
         <section className="accountForm">
-          <form action="">
+          <form onSubmit="">
             <div className="emailBox">
               <label htmlFor="email">EMAIL</label>
               <input
@@ -22,6 +50,7 @@ function LoginScr() {
                 name="email"
                 id="email"
                 placeholder="you@example.com"
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
 
@@ -32,6 +61,7 @@ function LoginScr() {
                 name="password"
                 id="password"
                 placeholder="........"
+                onChange={(e) => setPassword(e.target.value)}
               />
               <button type="button" className="forgotPassword">
                 FORGOT PASSWORD?
@@ -39,9 +69,13 @@ function LoginScr() {
             </div>
           </form>
         </section>
+        <form id="loginForm" onSubmit={handleSubmit}></form>
 
         <div className="logInButtonCont">
-          <Button> LOG IN →</Button>
+          <Button type="submit" form="loginForm">
+            {" "}
+            LOG IN →
+          </Button>
           <h2>
             NEW HERE? <a href="">CREATE AN ACCOUNT</a>
           </h2>
