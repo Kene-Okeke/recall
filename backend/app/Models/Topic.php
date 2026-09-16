@@ -8,6 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Topic extends Model
 {
+
+    protected $fillable = [
+         'user_id',
+        'title',
+        'category',
+        'next_review_date',
+        'repetition_count',
+        'interval',
+        'easiness_factor',
+    ];
+    
     public function user()
     {
         return $this->belongsTo(User::class);
