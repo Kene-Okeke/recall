@@ -1,5 +1,6 @@
 //this is the home component - the home page of the application
 import "../css/Home.css"; // importing the stylesheet for the home component
+import { Link } from "react-router-dom";
 
 function Home() {
   return (
@@ -86,7 +87,9 @@ function Home() {
         </section>
         {/* add new topic button */}
         <div className="addNewTopicButton">
-          <img src="src/assets/icons/add-icon.png" alt="Add Topic" />
+          <Link to="/first-topic">
+            <img src="src/assets/icons/add-icon.png" alt="Add Topic" />
+          </Link>
         </div>
         <section className="footer">
           <div className="homefooterContainer">
