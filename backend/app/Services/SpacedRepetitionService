@@ -1,0 +1,14 @@
+<?php
+
+namespace App\Services;
+
+
+
+class SpacedRepetitionService
+{
+    //$topic = the Topic model, containing the topic's current SM-2 values
+//$score = the user's 0–100 Recall score
+    function process($topic ,$score){
+
+    }
+}

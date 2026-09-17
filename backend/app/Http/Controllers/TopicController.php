@@ -16,13 +16,14 @@ class TopicController extends Controller
             'category' => 'required|string',
         ]);
 
-        $request->user()->topics()->create([
+        $topic = $request->user()->topics()->create([
             'title' => $data['title'],
             'category'=> $data['category'],
         ]);
 
         return response() -> json([
             'message' => 'Topic created successfully',
+            'topic'=> $topic,
         ]);
     }
 }
