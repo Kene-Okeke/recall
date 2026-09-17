@@ -1,10 +1,7 @@
-import { useState } from "react";
 import "./ScoreSlider.css";
 
 /* this is the score slider component */
-function ScoreSlider() {
-  const [score, setScore] = useState(0);
-
+function ScoreSlider({ score, setScore }) {
   let sliderColor;
 
   if (score <= 30) {

@@ -27,9 +27,12 @@ function FirstTopicScr() {
 
     console.log(response);
 
+    const data = await response.json();
+    const topicId = data.topic.id;
+
     if (response.ok) {
       navigate("/first-rev", {
-        state: { title },
+        state: { title, topicId },
       });
     }
   };
