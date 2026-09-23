@@ -2,6 +2,7 @@ import "../css/LoginScr.css";
 import Button from "../components/Button.jsx";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function LoginScr() {
   const [email, setEmail] = useState("");
@@ -77,7 +78,7 @@ function LoginScr() {
             LOG IN →
           </Button>
           <h2>
-            NEW HERE? <a href="">CREATE AN ACCOUNT</a>
+            NEW HERE? <Link to="/create-account">CREATE AN ACCOUNT</Link>
           </h2>
         </div>
       </section>

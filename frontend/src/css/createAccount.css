@@ -1,0 +1,109 @@
+.mainContainer {
+  background: var(--paperbackground);
+  height: 100vh;
+  padding-top: 50px;
+  padding-left: 20px;
+}
+
+.progressDots {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #5a4e3e;
+  opacity: 0.25;
+}
+
+.dot.active {
+  background: #b2412e;
+  opacity: 1;
+}
+
+.welcomeContainer {
+  padding-bottom: 20px;
+}
+
+.welcomeText {
+  color: var(--rust-darkpressed);
+  font-weight: 600;
+  font-size: 15.5px;
+  font-family: "JetBrains Mono", monospace;
+}
+
+.punchDetailsStatement {
+  font-family: "Special Elite", cursive;
+  color: var(--inktext);
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 1.2;
+  padding-top: 6px;
+}
+
+.accountForm {
+  padding: 0 4px;
+}
+
+.userNameBox,
+.emailBox,
+.passwordBox {
+  margin-bottom: 16px;
+}
+
+.userNameBox label,
+.emailBox label,
+.passwordBox label {
+  display: block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #5a4e3e;
+  margin-bottom: 6px;
+}
+
+.userNameBox input,
+.emailBox input,
+.passwordBox input {
+  max-width: 100%;
+  width: 90%;
+  background: #fffdf7;
+  border: 1px solid #2b221a;
+  border-bottom: 3px solid #b2412e;
+  border-radius: 4px;
+  padding: 12px;
+  font-family: "Special Elite", monospace;
+  font-size: 15px;
+  color: #2b221a;
+  outline: none;
+  height: 42px;
+}
+
+.signUpButtonCont {
+  margin-top: 60px;
+  display: block;
+}
+
+.signUpButtonCont h2 {
+  text-align: center;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+  font-weight: 400;
+  color: #5a4e3e;
+  margin: 0 0 18px;
+}
+
+.signUpButtonCont h2 a {
+  color: #8c2f20;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.signUpButtonCont h2 a:hover {
+  text-decoration: underline;
+}

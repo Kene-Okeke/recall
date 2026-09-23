@@ -9,6 +9,8 @@ function FirstRevScreen() {
   const [notes, setNotes] = useState("");
   const [score, setScore] = useState(0);
 
+  /* this is the async function that allows us to post our first review topic
+   */
   const submitReview = async (e) => {
     const response = await fetch("/api/review", {
       method: "POST",
@@ -18,7 +20,7 @@ function FirstRevScreen() {
     });
 
     if (response.ok) {
-      /* blank for now */
+      console.log("review stored successfully");
     }
   };
 
