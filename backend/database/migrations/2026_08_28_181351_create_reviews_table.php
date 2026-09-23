@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('topic_id')->constrained()->onDelete('cascade');
+            $table->integer('score')->unsigned();
+            $table->text('notes')->nullable();
             $table->timestamps();
         });
     }

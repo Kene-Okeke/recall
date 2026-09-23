@@ -7,6 +7,9 @@ use App\Models\Topic;
 
 class Review extends Model
 {
+
+    protected $fillable = ['score','notes'];
+
     public function topic()
     {
         return $this->belongsTo(Topic::class);

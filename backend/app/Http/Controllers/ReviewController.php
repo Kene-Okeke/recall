@@ -8,7 +8,7 @@ use App\Services\SpacedRepetitionService;
 
 class ReviewController extends Controller
 {
-    function Review(Request $request, SpacedRepetiionService $service){
+    public function Review(Request $request, SpacedRepetitionService $service){
 
        $data = $request->validate([
         'score' => 'required|integer|min:0|max:100',
@@ -29,7 +29,7 @@ class ReviewController extends Controller
 
        $service->process($topic, $data['score']);
 
-       return response->json([
+       return response()->json([
         'message' => 'Review completed successfully'
        ]);
 

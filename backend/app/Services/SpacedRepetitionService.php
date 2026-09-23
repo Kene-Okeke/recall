@@ -57,8 +57,8 @@ class SpacedRepetitionService
         0.1 - (5 - $quality) * (
             0.08 + (5 - $quality) * 0.02
         )
-    );
-    return max(1.3, $newEF);
+        );
+    return max(1.3, $newEf);
 
     }
 
