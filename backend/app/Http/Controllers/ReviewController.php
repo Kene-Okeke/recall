@@ -29,5 +29,9 @@ class ReviewController extends Controller
 
        $service->process($topic, $data['score']);
 
+       return response->json([
+        'message' => 'Review completed successfully'
+       ]);
+
     }
 }
