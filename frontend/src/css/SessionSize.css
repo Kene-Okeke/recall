@@ -96,22 +96,20 @@
 
 .sessionContinue {
   display: block;
-  max-width: 150%;
-  width: 115px;
+  width: fit-content;
+  min-width: 250px;
   text-align: center;
-  background: #b2412e; /* rust */
-  color: #fffdf7; /* white */
+  background: #b2412e;
+  color: #fffdf7;
   font-family: "JetBrains Mono", monospace;
   font-weight: 700;
   letter-spacing: 1px;
   font-size: 14px;
-  padding: 27px 10px;
+  padding: 20px 120px;
   border-radius: 8px;
   border: none;
-  margin-top: 150px;
-  margin-left: 10px;
-  margin-bottom: 14px;
-  box-shadow: 3px 3px 0 #2b221a; /* ink offset shadow */
+  margin: 150px auto 14px;
+  box-shadow: 3px 3px 0 #2b221a;
   cursor: pointer;
 }
 

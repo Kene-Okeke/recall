@@ -2,6 +2,7 @@ import "../css/StudySchedule.css";
 import DayRow from "../components/DayRow.jsx";
 import Button from "../components/Button.jsx";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function StudySchedule() {
   const [mon, setMon] = useState(true);
@@ -12,7 +13,7 @@ function StudySchedule() {
   const [sat, setSat] = useState(false);
   const [sun, setSun] = useState(false);
 
-  selectedDays = [];
+  const selectedDays = [];
   if (mon) {
     selectedDays.push("Monday");
   }
@@ -35,21 +36,14 @@ function StudySchedule() {
     selectedDays.push("Sunday");
   }
 
-  const handleContinue = async (e) => {
-    e.preventDefault();
+  const navigate = useNavigate();
 
-    const response = await fetch("", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-      body: JSON.stringify({
+  const handleContinue = () => {
+    navigate("/session-size", {
+      state: {
         selectedDays,
-      }),
+      },
     });
-
-    const data = response.json();
   };
 
   return (
@@ -73,9 +67,7 @@ function StudySchedule() {
         </div>
 
         <div className="buttonContainer">
-          <Button form={"continue"} onClick={handleContinue}>
-            CONTINUE - 3 DAYS/WEEK →
-          </Button>
+          <Button onClick={handleContinue}>CONTINUE - 3 DAYS/WEEK →</Button>
         </div>
       </div>
     </>

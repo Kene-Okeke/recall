@@ -56,7 +56,7 @@ function LoginScr() {
             </div>
 
             <div className="passwordBox">
-              <label htmlFor="username">PASSWORD</label>
+              <label htmlFor="password">PASSWORD</label>
               <input
                 type="password"
                 name="password"
