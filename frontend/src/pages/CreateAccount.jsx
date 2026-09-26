@@ -8,6 +8,27 @@ function CreateAccount() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const response = await fetch("/api/create-account", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+      body: JSON.stringify({
+        username,
+        email,
+        password,
+      }),
+    });
+
+    const data = await response.json();
+
+    console.log(data);
+  };
+
   return (
     <section className="mainContainer">
       <div className="progressDots">
@@ -27,7 +48,7 @@ function CreateAccount() {
       </section>
 
       <section className="accountForm">
-        <form id="signupForm" onSubmit="">
+        <form id="signupForm" onSubmit={handleSubmit}>
           <div className="userNameBox">
             <label htmlFor="username">USERNAME</label>
             <input
