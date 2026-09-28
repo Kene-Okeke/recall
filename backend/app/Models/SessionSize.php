@@ -5,14 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 
-class StudySchedule extends Model
+class SessionSize extends Model
 {
     protected $fillable = [
-        'day_of_week',
+        'topics_per_session',
     ];
-    
-    public function user()
-    { 
+    public function user(){
         return $this->belongsTo(User::class);
     }
 }
