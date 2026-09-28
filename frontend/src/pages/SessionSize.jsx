@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 function SessionSize() {
-  const [number, setNumber] = useState("");
+  const [topicsPerSession, settopicsPerSession] = useState("");
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ function SessionSize() {
     navigate("/create-account", {
       state: {
         selectedDays,
-        number,
+        topicsPerSession,
       },
     });
   };
@@ -35,26 +35,26 @@ function SessionSize() {
       <div className="numberStackCont">
         <div className="numberCont">
           <div
-            className={`numberRow ${number === 5 ? "selected" : ""}`}
-            onClick={() => setNumber(5)}
+            className={`numberRow ${topicsPerSession === 5 ? "selected" : ""}`}
+            onClick={() => settopicsPerSession(5)}
           >
             5
           </div>
           <div
-            className={`numberRow ${number === 10 ? "selected" : ""}`}
-            onClick={() => setNumber(10)}
+            className={`numberRow ${topicsPerSession === 10 ? "selected" : ""}`}
+            onClick={() => settopicsPerSession(10)}
           >
             10
           </div>
           <div
-            className={`numberRow ${number === 15 ? "selected" : ""}`}
-            onClick={() => setNumber(15)}
+            className={`numberRow ${topicsPerSession === 15 ? "selected" : ""}`}
+            onClick={() => settopicsPerSession(15)}
           >
             15
           </div>
           <div
-            className={`numberRow ${number === 20 ? "selected" : ""}`}
-            onClick={() => setNumber(20)}
+            className={`numberRow ${topicsPerSession === 20 ? "selected" : ""}`}
+            onClick={() => settopicsPerSession(20)}
           >
             20
           </div>
@@ -65,7 +65,7 @@ function SessionSize() {
             type="text"
             placeholder="CUSTOM AMOUNT →"
             onChange={(e) => {
-              setNumber(Number(e.target.value));
+              settopicsPerSession(Number(e.target.value));
             }}
           />
         </form>

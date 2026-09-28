@@ -28,9 +28,12 @@ function FirstTopicScr() {
     console.log(response);
 
     const data = await response.json();
-    const topicId = data.topic.id;
+
+    console.log(data);
 
     if (response.ok) {
+      const topicId = Number(data.topic.id);
+
       navigate("/first-rev", {
         state: { title, topicId },
       });

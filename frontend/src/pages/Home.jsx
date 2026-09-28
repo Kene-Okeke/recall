@@ -16,8 +16,8 @@ function Home() {
         <div className="streakWrapper">
           <h1 className="streakNumber">12</h1>
           <div className="streakRightText">
-            <h2 classname="day">DAY</h2>
-            <h3 classname="streakText">STREAK</h3>
+            <h2 className="day">DAY</h2>
+            <h3 className="streakText">STREAK</h3>
             <h4>keep the ribbon spinning</h4>
           </div>
         </div>
@@ -93,20 +93,20 @@ function Home() {
         </div>
         <section className="footer">
           <div className="homefooterContainer">
-            <div classname="homeIcon">[■]</div>
-            <div classname="homeText">HOME</div>
+            <div className="homeIcon">[■]</div>
+            <div className="homeText">HOME</div>
           </div>
           <div className="itemsContainer">
-            <div classname="itemsIcon">[≡]</div>
-            <div classname="itemsText">ITEMS</div>
+            <div className="itemsIcon">[≡]</div>
+            <div className="itemsText">ITEMS</div>
           </div>
           <div className="addContainer">
-            <div classname="addIcon">[+]</div>
-            <div classname="addText">ADD</div>
+            <div className="addIcon">[+]</div>
+            <div className="addText">ADD</div>
           </div>
           <div className="statsContainer">
-            <div classname="statsIcon">[▲]</div>
-            <div classname="statsText">STATS</div>
+            <div className="statsIcon">[▲]</div>
+            <div className="statsText">STATS</div>
           </div>
         </section>
       </section>

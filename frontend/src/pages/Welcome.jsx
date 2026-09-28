@@ -1,6 +1,12 @@
 import "../css/Welcome.css";
+import { useNavigate } from "react-router-dom";
 
 function Welcome() {
+  const navigate = useNavigate();
+
+  const handleContinue = (e) => {
+    navigate("/study-schedule");
+  };
   return (
     <>
       <section className="welcomeContainer">
@@ -26,7 +32,9 @@ function Welcome() {
         </section>
 
         <section className="getStartedandLogin">
-          <button className="getStartedButton">GET STARTED</button>
+          <button className="getStartedButton" onClick={handleContinue}>
+            GET STARTED
+          </button>
 
           <button className="loginButton">I ALREADY HAVE AN ACCOUNT→</button>
         </section>

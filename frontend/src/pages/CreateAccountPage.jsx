@@ -2,11 +2,15 @@ import "../css/createAccount.css";
 import Button from "../components/Button.jsx";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function CreateAccount() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const location = useLocation();
+  const { selectedDays, topicsPerSession } = location.state;
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,9 +28,36 @@ function CreateAccount() {
       }),
     });
 
-    const data = await response.json();
+    // if user account creation works then post onboarding details first session size
+    if (response.ok) {
+      const sessionSizeResponse = await fetch("/api/saveSessionSize", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify({
+          topics_per_session: topicsPerSession,
+        }),
+      });
 
-    console.log(data);
+      if (sessionSizeResponse.ok) {
+        const scheduledDaysresponse = await fetch("/api/saveSchedule", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+          body: JSON.stringify({
+            selectedDays,
+          }),
+        });
+
+        if (scheduledDaysresponse.ok) {
+          navigate("/");
+        }
+      }
+    }
   };
 
   return (
