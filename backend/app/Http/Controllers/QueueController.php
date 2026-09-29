@@ -43,20 +43,21 @@ class QueueController extends Controller
 
                 $reviewDate = Carbon::parse($topic->next_review_date);
 
-                if($reviewDate->isSameDay($today)){
-
-                    $lastReview = $topic->reviews()
+                 $lastReview = $topic->reviews()
                     ->latest()
                     ->first();
 
                     
                     $daysAgo = $lastReview->created_at->diffInDays($today);
 
-                
+
+                if($reviewDate->isSameDay($today)){
+
                     $todayTopics[] = [
                         'title' => $topic->title,
                         'category' => $topic->category,
-                        'lastReviewed' => $daysAgo
+                        'lastReviewed' => $daysAgo,
+                        'lastScore' => $lastReview->score
                     ];
                 }elseif($reviewDate->isAfter($today)){
 
@@ -64,6 +65,7 @@ class QueueController extends Controller
                         'title' => $topic->title,
                         'category' => $topic->category,
                         'nextReviewDate'=> $reviewDate,
+                        'lastScore' => $lastReview->score
                     ];
 
                    
@@ -87,7 +89,8 @@ class QueueController extends Controller
                 $queue = collect($todayTopics)->take($sessionSize->topics_per_session)->values();
             }
         } return response()->json([
-            'queue' => $queue
+            'queue' => $queue,
+            'user'=>$user
         ]);
 
     }
