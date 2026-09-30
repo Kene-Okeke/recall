@@ -1,17 +1,18 @@
-import "../css/FirstRevScreen.css";
+import "../css/Review.css";
 import ScoreSlider from "../components/ScoreSlider";
-import { useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
-function FirstRevScreen() {
-  const location = useLocation();
-  const { title, topicId } = location.state;
+function Review() {
   const [notes, setNotes] = useState("");
+
   const [score, setScore] = useState(0);
+
+  const location = useLocation();
   const navigate = useNavigate();
 
-  /* this is the async function that allows us to post our first review topic
-   */
+  const { topicId, topicTitle } = location.state;
+
   const submitReview = async (e) => {
     const response = await fetch("/api/review", {
       method: "POST",
@@ -24,13 +25,12 @@ function FirstRevScreen() {
       navigate("/");
     }
   };
-
   return (
     <>
       <section className="mainContainer">
         <div className="firstReviewDetails">
-          <h1 className="firstReviewText"> &gt; FIRST_REVIEW</h1>
-          <h2 className="reviewTopic">{title}</h2>
+          <h1 className="ReviewText"> &gt; REVIEW</h1>
+          <h2 className="reviewTopic">{topicTitle}</h2>
         </div>
 
         <div className="howtextanddots">
@@ -108,5 +108,4 @@ function FirstRevScreen() {
     </>
   );
 }
-
-export default FirstRevScreen;
+export default Review;

@@ -1,0 +1,222 @@
+.mainContainer {
+  background-color: var(--paperbackground);
+  height: 100vh;
+  overflow: hidden;
+  padding-top: 40px;
+  padding-left: 33px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.ReviewText {
+  color: var(--rust-darkpressed);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 16px;
+}
+
+.scorerangeSection {
+  display: flex;
+  gap: 30px;
+  padding: 30px;
+  padding-bottom: 10px;
+  margin-left: -10px;
+}
+
+.scorerangeSection h2 {
+  font-size: 26px;
+}
+
+.firstRange,
+.secondRange,
+.thirdRange {
+  border-style: solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-width: 2px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 24px;
+  padding-right: 24px;
+  margin-left: -20px;
+  border-color: var(--ink-softsecondarytext);
+  font-family: "VT323", monospace;
+  background-color: var(--whitecards);
+  border-radius: 10px;
+  width: 200px;
+  color: var(--ink-softsecondarytext);
+  font-weight: lighter;
+}
+
+.firstRange.active,
+.secondRange.active,
+.thirdRange.active {
+  background: #e8a33d;
+  color: #2b221a;
+  border: 2px solid #2b221a;
+  box-shadow: 3px 3px 0 #2b221a;
+}
+
+.firstRange {
+  color: var(--rust-darkpressed);
+}
+
+.reviewTopic {
+  font-family: "Special Elite", cursive;
+  color: var(--inktext);
+  padding-bottom: 30px;
+  font-size: 30px;
+  padding-top: 10px;
+}
+
+.howtextanddots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-right: 30px;
+}
+
+.howtextanddots h2 {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #5a4e3e;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.scoreSlidercont {
+  padding: 10px;
+  margin-left: -5px;
+  padding-right: 20px;
+  width: 388px;
+  padding-top: 20px;
+}
+
+.honestText {
+  font-family: "JetBrains Mono", monospace;
+  color: var(--ink-softsecondarytext);
+  font-size: 12px;
+  padding-left: 3px;
+  padding-bottom: 10px;
+}
+
+.addnotesSection h2 {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  font-weight: lighter;
+}
+
+.notesLabel {
+  display: block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #5a4e3e;
+  margin: 14px 0 6px;
+}
+
+.notesLabel::before {
+  content: "✎ ";
+  color: #8c2f20;
+}
+
+#notes {
+  max-width: 100%;
+  width: 95%;
+  min-height: 70px;
+  resize: vertical;
+
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 20px,
+      rgba(90, 78, 62, 0.18) 21px,
+      transparent 22px
+    ),
+    #fffdf7;
+
+  border: 1px solid #2b221a;
+  border-left: 3px dashed #b2412e;
+  border-radius: 4px;
+  padding: 10px 12px 4px;
+
+  font-family: "Special Elite", monospace;
+  font-size: 13px;
+  line-height: 22px;
+  color: #2b221a;
+
+  outline: none;
+}
+
+#notes::placeholder {
+  color: #5a4e3e;
+  opacity: 0.55;
+}
+
+.terminalPanel {
+  background: #2b221a;
+  border-radius: 10px;
+  padding: 19px;
+  color: #e8a33d;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 14px;
+  line-height: 1.9;
+  margin-top: 14px;
+  width: 378px;
+}
+
+.terminalPanel .row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.terminalPanel .row .dots {
+  flex: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0 6px;
+  opacity: 0.35;
+}
+
+.terminalPanel .val {
+  color: #fffdf7;
+}
+
+.completeReviewButton {
+  display: block;
+  max-width: 100%;
+  width: 95%;
+  text-align: center;
+  background: #b2412e;
+  color: #fffdf7;
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: 13px;
+  padding: 20px 0;
+  border-radius: 8px;
+  border: none;
+  margin-top: 100px;
+  margin-bottom: 14px;
+  box-shadow: 3px 3px 0 #2b221a;
+  cursor: pointer;
+}
+
+.completeReviewButton:active {
+  box-shadow: none;
+  transform: translate(3px, 3px);
+}
+
+.dottedLine {
+  flex: 1;
+  border-bottom: 1px dashed #5a4e3e;
+  opacity: 0.3;
+}
