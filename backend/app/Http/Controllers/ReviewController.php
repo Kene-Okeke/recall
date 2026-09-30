@@ -30,8 +30,11 @@ class ReviewController extends Controller
        $service->process($topic, $data['score']);
 
        return response()->json([
-        'message' => 'Review completed successfully'
+        'message' => 'Review completed successfully',
+        'topic_title'=> $topic->title
        ]);
 
     }
+
+
 }

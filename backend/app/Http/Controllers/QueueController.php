@@ -54,18 +54,21 @@ class QueueController extends Controller
                 if($reviewDate->isSameDay($today)){
 
                     $todayTopics[] = [
+                        'id'=>$topic->id,
                         'title' => $topic->title,
                         'category' => $topic->category,
                         'lastReviewed' => $daysAgo,
                         'lastScore' => $lastReview->score
                     ];
-                }elseif($reviewDate->isAfter($today)){
+                }elseif($reviewDate->isAfter($today) && ! $lastReview->created_at->isToday()){
 
                     $upcomingTopics[]= [
+                         'id'=>$topic->id,
                         'title' => $topic->title,
                         'category' => $topic->category,
                         'nextReviewDate'=> $reviewDate,
-                        'lastScore' => $lastReview->score
+                        'lastScore' => $lastReview->score,
+                        
                     ];
 
                    
@@ -73,22 +76,28 @@ class QueueController extends Controller
 
             }
              $upcomingTopics = collect($upcomingTopics);
-             $upcomingTopics =  $upcomingTopics
-                    ->sortBy('nextReviewDate')
-                    ->values();
+                 $upcomingTopics = $upcomingTopics
+                ->sortBy('nextReviewDate')
+                ->filter(function ($topic) {
+                return $topic['lastScore'] <= 40;
+                })
+                ->values();
 
              $todayTopicCount = count($todayTopics);
 
             if($todayTopicCount < $sessionSize->topics_per_session){
                 $remainingSlots = $sessionSize->topics_per_session - $todayTopicCount;
 
+                //have to redefine upcomingtoAdd
                 $upcomingtoAdd = $upcomingTopics->take($remainingSlots);
 
                 $queue = collect($todayTopics)->concat($upcomingtoAdd)->values();
             }else{
                 $queue = collect($todayTopics)->take($sessionSize->topics_per_session)->values();
             }
-        } return response()->json([
+        }
+        
+        return response()->json([
             'queue' => $queue,
             'user'=>$user
         ]);

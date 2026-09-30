@@ -24,9 +24,16 @@ class SpacedRepetitionService
         $newInterval = $this->calculateInterval($topic,$quality,$newRepetitionCount,$newEF);
 
         $nextReviewDate = Carbon::today()->addDays($newInterval);
+
+        $topic->update([
+            'easiness_factor' => $newEF,
+            'repetition_count' => $newRepetitionCount,
+            'interval'=> $newInterval,
+            'next_review_date'=> $nextReviewDate
+        ]);
     }
 
-    private function convertScoreToQuality($score){
+     private function convertScoreToQuality($score){
         if ($score < 20) {
             return 0;
         }
@@ -49,6 +56,8 @@ class SpacedRepetitionService
 
         return 5;
     }
+
+
 
     private function calculateEasinessFactor ($topic,$quality){
         $ef = $topic->easiness_factor;
