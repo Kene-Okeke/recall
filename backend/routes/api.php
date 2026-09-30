@@ -6,6 +6,8 @@ use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\SessionSizeController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\QueueController;
+use App\Http\Controllers\StreakController;
+
 
 
 Route::middleware('web')->post('/login',[AuthController::class, 'login']);
@@ -15,4 +17,4 @@ Route::middleware('auth:sanctum')->get('/showQueue',[QueueController::class, 'sh
 Route::middleware('auth:sanctum')->post('/saveSessionSize',[SessionSizeController::class, 'saveSessionSize']);
 Route::middleware('auth:sanctum')->post('saveSchedule',[ScheduleController::class, 'saveSchedule']);
 Route::post('/create-account', [AuthController::class, 'createAccount']);
-
+Route::middleware('auth:sanctum')->get('/getStreak', [StreakController::class, 'getStreak']);

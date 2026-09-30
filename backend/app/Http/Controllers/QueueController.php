@@ -15,6 +15,10 @@ class QueueController extends Controller
         //now we can access all the data we need from user using the relationships
         $studySchedules = $user->studySchedules()->get();
 
+        $streak = $user->streak;
+        
+        $lastStreakDate = $user->last_streak_date;
+
         $today = Carbon::today();
 
         $todayNumber = $today->dayOfWeek;
@@ -31,6 +35,7 @@ class QueueController extends Controller
 
         $queue = [];
 
+        //function if today is a study day then .. ↓
         if($isStudyDay){
             $sessionSize = $user->sessionSize()->first();
 
