@@ -8,7 +8,8 @@ function Home() {
   const [user, setUser] = useState("");
   const navigate = useNavigate();
   const [topicId, setTopicId] = useState("");
-  const [topicTitle, setTopicTitle] = usestate("");
+  const [topicTitle, setTopicTitle] = useState("");
+  const [streak, setStreak] = useState(0);
 
   useEffect(() => {
     const getQueue = async () => {
@@ -32,10 +33,26 @@ function Home() {
         state: {
           topicId,
           topicTitle,
+          fromQueue: true,
         },
       });
     }
   }, [topicId]);
+
+  useEffect(() => {
+    const getStreak = async () => {
+      const response = await fetch("/api/getStreak", {
+        credentials: "include",
+      });
+
+      const data = await response.json();
+
+      setStreak(data["streak"]);
+    };
+
+    getStreak();
+  }, []);
+
   return (
     <>
       {" "}
@@ -47,7 +64,7 @@ function Home() {
           <h2 className="dueText">Due today</h2>
         </div>
         <div className="streakWrapper">
-          <h1 className="streakNumber">12</h1>
+          <h1 className="streakNumber">{streak}</h1>
           <div className="streakRightText">
             <h2 className="day">DAY</h2>
             <h3 className="streakText">STREAK</h3>

@@ -11,14 +11,19 @@ function Review() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const { topicId, topicTitle } = location.state;
+  const { topicId, topicTitle, fromQueue } = location.state;
 
   const submitReview = async (e) => {
     const response = await fetch("/api/review", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       credentials: "include",
-      body: JSON.stringify({ score, topic_id: topicId, notes }),
+      body: JSON.stringify({
+        score,
+        topic_id: topicId,
+        notes,
+        from_queue: fromQueue,
+      }),
     });
 
     if (response.ok) {

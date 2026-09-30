@@ -17,7 +17,12 @@ function FirstRevScreen() {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       credentials: "include",
-      body: JSON.stringify({ score, topic_id: topicId, notes }),
+      body: JSON.stringify({
+        score,
+        topic_id: topicId,
+        notes,
+        from_queue: false,
+      }),
     });
 
     if (response.ok) {
