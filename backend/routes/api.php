@@ -7,6 +7,7 @@ use App\Http\Controllers\SessionSizeController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\QueueController;
 use App\Http\Controllers\StreakController;
+use App\Http\Controllers\StatsController;
 
 
 
@@ -18,3 +19,11 @@ Route::middleware('auth:sanctum')->post('/saveSessionSize',[SessionSizeControlle
 Route::middleware('auth:sanctum')->post('saveSchedule',[ScheduleController::class, 'saveSchedule']);
 Route::post('/create-account', [AuthController::class, 'createAccount']);
 Route::middleware('auth:sanctum')->get('/getStreak', [StreakController::class, 'getStreak']);
+Route::middleware('auth:sanctum')->get(
+    '/stats/topics',
+    [StatsController::class, 'getTopics']
+);
+Route::middleware('auth:sanctum')->get(
+    '/stats/topics/{topicId}',
+    [StatsController::class, 'getTopicStats']
+);
