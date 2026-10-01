@@ -220,3 +220,217 @@
   border-bottom: 1px dashed #5a4e3e;
   opacity: 0.3;
 }
+
+/* ================================
+   DESKTOP REVIEW
+   ================================ */
+
+@media (min-width: 901px) {
+  .mainContainer {
+    position: relative;
+    min-height: 100vh;
+    height: 100vh;
+    overflow: hidden;
+    padding: 45px 70px 35px;
+  }
+
+  /* HEADER */
+
+  .firstReviewDetails {
+    width: 100%;
+  }
+
+  .ReviewText {
+    font-size: 18px;
+    letter-spacing: 0.5px;
+  }
+
+  .reviewTopic {
+    font-size: 46px;
+    padding-top: 14px;
+    padding-bottom: 32px;
+  }
+
+  /* QUESTION */
+
+  .howtextanddots {
+    width: 100%;
+    padding-right: 0;
+    gap: 15px;
+  }
+
+  .howtextanddots h2 {
+    font-size: 16px;
+    letter-spacing: 1.2px;
+  }
+
+  /* SCORE CARDS */
+
+  .scorecardsContainer {
+    width: 100%;
+  }
+
+  .scorerangeSection {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+
+    gap: 35px;
+
+    width: 100%;
+
+    padding: 40px 0 15px;
+    margin-left: 0;
+  }
+
+  .scorerangeSection h2 {
+    font-size: 52px;
+  }
+
+  .firstRange,
+  .secondRange,
+  .thirdRange {
+    width: 360px;
+    height: 130px;
+    min-width: 360px;
+
+    margin-left: 0;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 52px;
+    font-weight: lighter;
+
+    border-width: 3px;
+    border-radius: 14px;
+  }
+
+  .firstRange.active,
+  .secondRange.active,
+  .thirdRange.active {
+    box-shadow: 6px 6px 0 #2b221a;
+  }
+
+  /* HONEST TEXT */
+
+  .honestText {
+    display: block;
+    width: 100%;
+    text-align: center;
+
+    font-size: 14px;
+    padding: 0 0 20px;
+  }
+
+  /* SLIDER */
+
+  .scoreSection {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .scoreSlidercont {
+    width: 1150px;
+    max-width: 90%;
+
+    margin: 0 auto !important;
+    padding: 30px 0 35px;
+
+    display: flex;
+    justify-content: center;
+  }
+
+  .scoreSlidercont input[type="range"] {
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    height: 14px;
+  }
+
+  /* NOTES */
+
+  .addnotesSection {
+    width: 900px;
+    max-width: 90%;
+    margin: 18px auto 0;
+  }
+
+  .addnotesSection h2 {
+    width: 100%;
+    margin-bottom: 12px;
+    text-align: left;
+    font-size: 14px;
+  }
+
+  #notes {
+    width: 100%;
+    max-width: none;
+
+    min-height: 220px;
+    height: 220px;
+
+    margin: 0;
+    display: block;
+
+    font-size: 15px;
+    line-height: 25px;
+    padding: 15px;
+  }
+
+  /* TERMINAL */
+
+  .terminalPanel {
+    width: 900px;
+    max-width: 90%;
+
+    margin: 20px auto 0;
+    padding: 22px;
+
+    font-size: 15px;
+    line-height: 2;
+  }
+
+  .terminalPanel .row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .terminalPanel .row .dots {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0 5px;
+  }
+
+  /* COMPLETE REVIEW */
+
+  .completeReviewButton {
+    position: absolute;
+
+    left: 50%;
+    transform: translateX(-50%);
+
+    bottom: 35px;
+
+    width: 900px;
+    max-width: 90%;
+
+    margin: 0 !important;
+
+    padding: 24px 0;
+
+    font-size: 18px;
+    letter-spacing: 1.2px;
+
+    border-radius: 9px;
+
+    box-shadow: 4px 4px 0 #2b221a;
+  }
+}

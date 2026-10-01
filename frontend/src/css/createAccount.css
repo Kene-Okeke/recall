@@ -107,3 +107,75 @@
 .signUpButtonCont h2 a:hover {
   text-decoration: underline;
 }
+
+/* ================================
+   DESKTOP CREATE ACCOUNT
+   ================================ */
+
+@media (min-width: 901px) {
+  .mainContainer {
+    padding-top: 70px;
+    padding-left: 60px;
+  }
+
+  .progressDots {
+    gap: 8px;
+    margin-bottom: 30px;
+  }
+
+  .dot {
+    width: 9px;
+    height: 9px;
+  }
+
+  .welcomeText {
+    font-size: 20px;
+  }
+
+  .punchDetailsStatement {
+    font-size: 52px;
+    line-height: 1.1;
+    padding-top: 12px;
+  }
+
+  .welcomeContainer {
+    padding-bottom: 40px;
+  }
+
+  .accountForm {
+    padding: 0 4px;
+    width: 800px;
+    max-width: 100%;
+  }
+
+  .userNameBox,
+  .emailBox,
+  .passwordBox {
+    margin-bottom: 28px;
+  }
+
+  .userNameBox label,
+  .emailBox label,
+  .passwordBox label {
+    font-size: 17px;
+    margin-bottom: 10px;
+  }
+
+  .userNameBox input,
+  .emailBox input,
+  .passwordBox input {
+    width: 100%;
+    max-width: 100%;
+    height: 65px;
+    padding: 18px;
+    font-size: 19px;
+  }
+
+  .signUpButtonCont {
+    margin-top: 100px;
+  }
+
+  .signUpButtonCont h2 {
+    font-size: 15px;
+  }
+}

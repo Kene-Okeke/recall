@@ -8,18 +8,7 @@ import {
 } from "recharts";
 import "../css/RecallChart.css";
 
-function RecallChart() {
-  const data = [
-    { day: "1", recall: 42 },
-    { day: "2", recall: 55 },
-    { day: "3", recall: 50 },
-    { day: "4", recall: 65 },
-    { day: "5", recall: 62 },
-    { day: "6", recall: 78 },
-    { day: "7", recall: 85 },
-    { day: "8", recall: 90 },
-  ];
-
+function RecallChart({ data }) {
   return (
     <div className="chartCard">
       <div className="chartTitle">RECALL % OVER TIME</div>
@@ -31,11 +20,13 @@ function RecallChart() {
             strokeOpacity={0.08}
             vertical={false}
           />
-          <XAxis dataKey="day" hide />
+
+          <XAxis dataKey="date" hide />
           <YAxis hide />
+
           <Line
             type="monotone"
-            dataKey="recall"
+            dataKey="score"
             stroke="#B2412E"
             strokeWidth={3}
             dot={false}

@@ -2,12 +2,25 @@
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  padding: 30px 28px 0; /* pick ONE padding declaration, delete the extra padding-left line below */
+  padding: 30px 16px 0;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   background-color: var(--paperbackground);
   padding-top: 50px;
+  position: relative;
+}
+
+.statsFooterItem {
+  padding-top: -2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 .recordContainer {
   width: 100%;
@@ -83,18 +96,16 @@
 
 .terminalPanel {
   width: 100%;
+  height: auto;
   box-sizing: border-box;
-
   background: #2b221a;
   border-radius: 10px;
-  padding: 14px;
-  height: 350px;
+  padding-bottom: 120px;
   color: #e8a33d;
   font-family: "JetBrains Mono", monospace;
   font-size: 11px;
   line-height: 1.9;
 }
-
 .statRow {
   display: flex;
   align-items: center;
@@ -117,12 +128,12 @@
 }
 
 .footerCont {
-  margin-top: 135px;
+  margin-top: auto;
 }
 
 .statsHard {
-  margin-top: 2px;
-  margin-left: -30px;
+  margin-top: 8px;
+  margin-left: -32px;
 }
 
 .sectionLabelRow {
@@ -141,4 +152,394 @@
   margin: 0;
   white-space: nowrap;
   padding-bottom: 10px;
+}
+
+/* =========================
+   STATS TOPIC LIST
+========================= */
+
+.statsHeader {
+  width: 100%;
+  margin-bottom: 16px;
+  flex-shrink: 0;
+}
+
+.statsHeader .itemTitle {
+  font-size: 24px;
+}
+
+.statsHeader .itemPrompt {
+  padding-top: 0;
+}
+
+/* search bar */
+.searchBarWrap {
+  width: 100%;
+  flex-shrink: 0;
+  margin-bottom: 14px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  background: #fffdf7;
+  border: 1px dashed #b2412e;
+  border-radius: 6px;
+  padding: 10px 12px;
+}
+
+.searchIcon {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 14px;
+  color: #8c2f20;
+  flex-shrink: 0;
+}
+
+.searchInput {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #2b221a;
+}
+
+.searchInput::placeholder {
+  color: #5a4e3e;
+  opacity: 0.6;
+}
+
+/* scrollable topics area — fills remaining space, footer stays pinned below it */
+.topicsScrollArea {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: 4px;
+  padding-bottom: 8px;
+}
+.topicsList {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.topicStatRow {
+  width: 100%;
+  min-height: 48px;
+  padding: 8px 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  background: #fffdf7;
+  border: 1px solid #2b221a;
+  border-left: 3px solid #b2412e;
+  border-radius: 5px;
+
+  box-sizing: border-box;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.topicStatInfo {
+  min-width: 0;
+}
+
+.topicStatInfo h2 {
+  margin: 0 0 3px;
+
+  font-family: "Special Elite", monospace;
+  font-size: 15px;
+  font-weight: 400;
+  color: #2b221a;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.topicStatInfo span {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9px;
+  color: #5a4e3e;
+  opacity: 0.75;
+}
+
+.topicStatScore {
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  font-weight: 700;
+  color: #8c2f20;
+}
+
+.topicStatScore span:last-child {
+  font-size: 16px;
+}
+
+.topicStatRow:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+.backToTopics {
+  display: block;
+  width: 100%;
+  margin-top: 14px;
+  padding: 13px 16px;
+
+  background: transparent;
+  color: #8c2f20;
+
+  border: 1px solid #8c2f20;
+  border-radius: 6px;
+
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+
+  cursor: pointer;
+}
+
+.backToTopics:active {
+  background: #8c2f20;
+  color: #fffdf7;
+  transform: translate(2px, 2px);
+}
+
+/* =========================
+   DESKTOP / LAPTOP
+========================= */
+
+@media (min-width: 901px) {
+  .statsContainer {
+    width: 100%;
+    min-height: 100vh;
+    height: 100vh;
+    padding: 55px 70px 0;
+    overflow: hidden;
+  }
+
+  /* -------------------------
+     STATS HEADER
+  ------------------------- */
+
+  .statsHeader {
+    max-width: 900px;
+    margin: 0 auto 22px;
+  }
+
+  .statsHeader .itemPrompt {
+    font-size: 16px;
+  }
+
+  .statsHeader .itemTitle {
+    font-size: 34px;
+  }
+
+  /* -------------------------
+     SEARCH
+  ------------------------- */
+
+  .searchBarWrap {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 18px;
+    padding: 13px 16px;
+  }
+
+  .searchIcon {
+    font-size: 17px;
+  }
+
+  .searchInput {
+    font-size: 13px;
+  }
+
+  /* -------------------------
+     TOPIC LIST
+  ------------------------- */
+
+  .topicsScrollArea {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding-right: 8px;
+    padding-bottom: 15px;
+  }
+
+  .topicsList {
+    width: 100%;
+    gap: 8px;
+  }
+
+  .topicStatRow {
+    min-height: 62px;
+    padding: 12px 18px;
+    border-left-width: 4px;
+  }
+
+  .topicStatInfo h2 {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+
+  .topicStatInfo span {
+    font-size: 10px;
+  }
+
+  .topicStatScore {
+    font-size: 14px;
+    gap: 12px;
+  }
+
+  .topicStatScore span:last-child {
+    font-size: 19px;
+  }
+
+  /* -------------------------
+     ITEM RECORD
+  ------------------------- */
+
+  .recordContainer {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 18px;
+    padding-top: 5px;
+  }
+
+  .recordContainer .itemPrompt {
+    font-size: 16px;
+    padding-top: 10px;
+  }
+
+  .recordContainer .itemTitle {
+    font-size: 36px;
+  }
+
+  /* -------------------------
+     CHART
+  ------------------------- */
+
+  .chartSection {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 18px;
+  }
+
+  /* -------------------------
+     LAST 7 DAYS
+  ------------------------- */
+
+  .sectionLabelRow {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 12px;
+    gap: 10px;
+  }
+
+  .sectionLabel {
+    font-size: 14px;
+    padding-bottom: 8px;
+  }
+
+  .calendarRow {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 18px;
+    gap: 10px;
+  }
+
+  .dayCell {
+    aspect-ratio: auto;
+    height: 48px;
+    font-size: 11px;
+  }
+
+  /* -------------------------
+     TERMINAL STATS PANEL
+  ------------------------- */
+
+  .terminalPanel {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 22px 26px 28px;
+    border-radius: 10px;
+    font-size: 13px;
+    line-height: 2.1;
+  }
+
+  .statRow {
+    font-size: 15px;
+  }
+
+  .statRow .dots {
+    margin: 0 12px;
+  }
+
+  /* -------------------------
+     BACK BUTTON
+  ------------------------- */
+
+  .backToTopics {
+    width: 100%;
+    max-width: 900px;
+    margin: 18px auto 0;
+    padding: 14px 18px;
+    font-size: 13px;
+  }
+
+  /* -------------------------
+     DESKTOP FOOTER
+  ------------------------- */
+
+  .footerCont {
+    width: 100%;
+    margin-top: auto;
+  }
+
+  .footerCont .footer {
+    width: 100%;
+    max-width: 1000px;
+    margin: 25px auto 0;
+    padding: 14px 20px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0;
+    font-size: 14px;
+  }
+
+  .footerCont .homefooterContainer,
+  .footerCont .itemsContainer,
+  .footerCont .addContainer,
+  .footerCont .statsFooterItem {
+    min-width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footerCont .statsFooterItem {
+    padding-top: 8px;
+  }
+
+  .footerCont .statsHard {
+    margin-top: 8px;
+    margin-left: 0;
+  }
 }

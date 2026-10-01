@@ -96,3 +96,73 @@
 .topicCont {
   margin-top: 278px;
 }
+
+/* ================================
+   DESKTOP FIRST TOPIC
+   ================================ */
+
+@media (min-width: 901px) {
+  .firstTopicContainer {
+    padding: 35px 60px 0;
+  }
+
+  .progressDots {
+    gap: 8px;
+    margin-bottom: 30px;
+  }
+
+  .dot {
+    width: 9px;
+    height: 9px;
+  }
+
+  .cardPrompt {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .cardTitle {
+    font-size: 42px;
+    line-height: 1.15;
+    margin-bottom: 30px;
+  }
+
+  .stamp {
+    top: 75px;
+    right: 70px;
+    font-size: 14px;
+    padding: 8px 14px;
+  }
+
+  .topicForm {
+    width: 700px;
+    max-width: 100%;
+  }
+
+  .topicBox,
+  .categoryBox {
+    margin-bottom: 25px;
+  }
+
+  .topicBox label,
+  .categoryBox label {
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+
+  .topicBox input,
+  .categoryBox input {
+    width: 100%;
+    padding: 18px;
+    font-size: 17px;
+  }
+
+  .topicCont {
+    margin-top: 100px;
+  }
+
+  .topicButton {
+    padding-top: 14px;
+    margin-top: 300px;
+  }
+}

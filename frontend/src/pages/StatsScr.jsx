@@ -2,57 +2,181 @@ import "../css/StatsScr.css";
 import RecallChart from "../components/RecallChart";
 import Footer from "../components/Footer";
 import DottedLine from "../components/DottedLine";
+import { useEffect, useState } from "react";
 
 function StatsScr() {
+  const [topics, setTopics] = useState([]);
+  const [selectedTopic, setSelectedTopic] = useState(null);
+  const [topicStats, setTopicStats] = useState(null);
+  const [search, setSearch] = useState("");
+
+  useEffect(() => {
+    const getTopics = async () => {
+      const response = await fetch("/api/stats/topics", {
+        credentials: "include",
+      });
+
+      const data = await response.json();
+
+      setTopics(data.topics);
+    };
+
+    getTopics();
+  }, []);
+
+  const handleTopicClick = async (topic) => {
+    setSelectedTopic(topic);
+
+    const response = await fetch(`/api/stats/topics/${topic.id}`, {
+      credentials: "include",
+    });
+
+    const data = await response.json();
+
+    console.log(data.topic);
+
+    setTopicStats(data);
+  };
+
+  const filteredTopics = topics.filter((topic) =>
+    topic.title.toLowerCase().includes(search.toLowerCase()),
+  );
+
+  const goBack = () => {
+    setSelectedTopic(null);
+    setTopicStats(null);
+  };
+
   return (
     <section className="statsContainer">
-      <div className="recordContainer">
-        <div className="itemPrompt">&gt; ITEM RECORD</div>
-        <h1 className="itemTitle">Two Sum</h1>
-      </div>
-      <div className="chartSection">
-        <RecallChart />
-      </div>
+      {!selectedTopic ? (
+        <>
+          <div className="statsHeader">
+            <div className="itemPrompt">&gt; YOUR STATS</div>
+            <h1 className="itemTitle">REVIEW HISTORY</h1>
+          </div>
 
-      <div className="sectionLabelRow">
-        <div className="sectionLabel">LAST 7 DAYS</div>
-        <DottedLine></DottedLine>
-      </div>
-      <div className="calendarRow">
-        <div className="dayCell done">M</div>
-        <div className="dayCell done">T</div>
-        <div className="dayCell">W</div>
-        <div className="dayCell done">T</div>
-        <div className="dayCell done">F</div>
-        <div className="dayCell">S</div>
-        <div className="dayCell today">S</div>
-      </div>
+          <div className="searchBarWrap">
+            <span className="searchIcon">⌕</span>
+            <input
+              type="text"
+              className="searchInput"
+              placeholder="SEARCH TOPICS..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </div>
 
-      <div className="terminalPanel">
-        <div className="statRow">
-          <span>REPETITIONS</span>
-          <span className="dots">..............</span>
-          <span className="statValue">4</span>
+          <div className="topicsScrollArea">
+            <div className="topicsList">
+              {filteredTopics.map((topic) => (
+                <div
+                  className="topicStatRow"
+                  key={topic.id}
+                  onClick={() => handleTopicClick(topic)}
+                >
+                  <div className="topicStatInfo">
+                    <h2>{topic.title}</h2>
+                    <span>{topic.lastReviewed}</span>
+                  </div>
+
+                  <div className="topicStatScore">
+                    <span>{topic.lastScore}%</span>
+                    <span>→</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </>
+      ) : !topicStats ? (
+        <div>
+          <p>LOADING STATS...</p>
         </div>
-        <div className="statRow">
-          <span>EASE FACTOR</span>
-          <span className="dots">..............</span>
-          <span className="statValue">2.4</span>
-        </div>
-        <div className="statRow">
-          <span>BEST SCORE</span>
-          <span className="dots">..............</span>
-          <span className="statValue">92%</span>
-        </div>
-        <div className="statRow">
-          <span>NEXT REVIEW</span>
-          <span className="dots">..............</span>
-          <span className="statValue">AUG 01</span>
-        </div>
-      </div>
+      ) : (
+        <>
+          <div className="recordContainer">
+            <div className="itemPrompt">&gt; ITEM RECORD</div>
+
+            <h1 className="itemTitle">{topicStats.topic.title}</h1>
+          </div>
+
+          <div className="chartSection">
+            <RecallChart data={topicStats.reviews} />
+          </div>
+
+          <div className="sectionLabelRow">
+            <div className="sectionLabel">LAST 7 DAYS</div>
+            <DottedLine />
+          </div>
+
+          <div className="calendarRow">
+            {Array.from({ length: 7 }).map((_, index) => {
+              const date = new Date();
+              const today = new Date();
+
+              date.setDate(today.getDate() - (6 - index));
+
+              const dayLetter = date
+                .toLocaleDateString("en-US", { weekday: "short" })
+                .charAt(0);
+
+              const dateString = date.toISOString().split("T")[0];
+
+              const wasReviewed = topicStats.reviews.some(
+                (review) => review.date === dateString,
+              );
+
+              return (
+                <div
+                  key={date.toISOString()}
+                  className={`dayCell ${wasReviewed ? "done" : ""}`}
+                >
+                  {dayLetter}
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="terminalPanel">
+            <div className="statRow">
+              <span>REPETITIONS</span>
+              <span className="dots">..............</span>
+              <span className="statValue">{topicStats.topic.repetitions}</span>
+            </div>
+
+            <div className="statRow">
+              <span>EASE FACTOR</span>
+              <span className="dots">..............</span>
+              <span className="statValue">{topicStats.topic.easeFactor}</span>
+            </div>
+
+            <div className="statRow">
+              <span>BEST SCORE</span>
+              <span className="dots">..............</span>
+              <span className="statValue">{topicStats.topic.bestScore}%</span>
+            </div>
+
+            <div className="statRow">
+              <span>NEXT REVIEW</span>
+              <span className="dots">..............</span>
+              <span className="statValue">
+                {" "}
+                {new Date(topicStats.topic.nextReview).toLocaleDateString(
+                  "en-US",
+                )}
+              </span>
+            </div>
+          </div>
+
+          <button className="backToTopics" onClick={goBack}>
+            ← BACK TO TOPICS
+          </button>
+        </>
+      )}
 
       <section className="footerCont">
-        <Footer styleName="footerchildscr" statsController="statsHard"></Footer>
+        <Footer styleName="footerchildscr" statsController="statsHard" />
       </section>
     </section>
   );

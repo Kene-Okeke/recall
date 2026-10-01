@@ -9,6 +9,7 @@ import StudySchedule from "./pages/StudySchedule.jsx";
 import SessionSize from "./pages/SessionSize.jsx";
 import Welcome from "./pages/Welcome.jsx";
 import Review from "./pages/Review.jsx";
+import StatsScr from "./pages/StatsScr.jsx";
 
 import { Routes, Route } from "react-router-dom";
 function App() {
@@ -23,6 +24,7 @@ function App() {
       <Route path="/session-size" element={<SessionSize />} />
       <Route path="/welcome" element={<Welcome />} />
       <Route path="/review" element={<Review />} />
+      <Route path="/stats" element={<StatsScr />} />
     </Routes>
   );
 }

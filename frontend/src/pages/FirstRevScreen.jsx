@@ -70,9 +70,11 @@ function FirstRevScreen() {
               75–100
             </h2>
           </div>
-          <span className="honestText">
-            be honest — this just sets your starting point
-          </span>
+          <section className="honestSection">
+            <span className="honestText">
+              be honest — this just sets your starting point
+            </span>
+          </section>
         </div>
         <section className="scoreSection">
           <div className="scoreSlidercont">
@@ -99,7 +101,7 @@ function FirstRevScreen() {
             <span className="dots">..............</span>
             <span className="val">2.5</span>
           </div>
-          <div class="row">
+          <div className="row">
             <span>FIRST INTERVAL</span>
             <span className="dots">..............</span>
             <span className="val">1 DAY</span>

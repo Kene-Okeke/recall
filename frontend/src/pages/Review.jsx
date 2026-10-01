@@ -99,7 +99,7 @@ function Review() {
             <span className="dots">..............</span>
             <span className="val">2.5</span>
           </div>
-          <div class="row">
+          <div className="row">
             <span>FIRST INTERVAL</span>
             <span className="dots">..............</span>
             <span className="val">1 DAY</span>

@@ -15,7 +15,7 @@ function Footer({ styleName, statsController }) {
         <div classname="addIcon">[+]</div>
         <div classname="addText">ADD</div>
       </div>
-      <div className={`statsContainer ${statsController || ""}`}>
+      <div className={`statsFooterItem ${statsController || ""}`}>
         <div classname="statsIcon">[▲]</div>
         <div classname="statsText">STATS</div>
       </div>

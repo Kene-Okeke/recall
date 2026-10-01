@@ -1,5 +1,7 @@
 /* Mobile Styles */
-
+.desktopDashboard {
+  display: none;
+}
 .homeContainer {
   display: flex;
   flex-direction: column;
@@ -302,4 +304,348 @@
 .footerAddTopic {
   color: inherit;
   text-decoration: none;
+}
+
+.statsLink {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ================================
+   Desktop Styles
+   ================================ */
+
+@media (min-width: 901px) {
+  .homeContainer {
+    min-height: 100vh;
+    height: 100vh;
+    overflow: hidden;
+    padding: 35px 60px 0;
+    background-color: #fbf5e6;
+  }
+
+  .userInformation {
+    padding-top: 10px;
+  }
+
+  .userName {
+    padding-left: 0;
+    font-size: 15px;
+    padding-bottom: 18px;
+  }
+
+  .userInformation h2 {
+    padding-left: 0;
+    font-size: 42px;
+    margin-top: -5px;
+  }
+
+  /* ================================
+     STREAK
+     ================================ */
+
+  .streakWrapper {
+    width: 100%;
+    max-width: none;
+    height: 115px;
+    margin: 25px 0 0;
+    padding: 0;
+    border-radius: 18px;
+    align-items: center;
+  }
+
+  .streakNumber {
+    font-size: 88px;
+    padding-left: 30px;
+    padding-top: 0;
+  }
+
+  .streakRightText {
+    margin-left: auto;
+    margin-right: 35px;
+    text-align: right;
+  }
+
+  .streakRightText h2,
+  .streakRightText h3,
+  .streakRightText h4 {
+    margin-left: 0;
+    display: block;
+    text-align: right;
+  }
+
+  .streakRightText h2 {
+    font-size: 16px;
+    margin-top: 0;
+    padding-top: 0;
+    padding-bottom: 4px;
+  }
+
+  .streakRightText h3 {
+    font-size: 16px;
+    margin-top: 0;
+    padding-bottom: 7px;
+  }
+
+  .streakRightText h4 {
+    font-size: 12px;
+    margin-top: 0;
+  }
+
+  /* ================================
+     DESKTOP DASHBOARD
+     ================================ */
+
+  .desktopDashboard {
+    width: 100%;
+    max-width: 1100px;
+    margin: 28px auto 0;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) 1.6fr;
+    gap: 14px;
+  }
+
+  .desktopStatCard {
+    min-height: 105px;
+
+    background: #fffdf7;
+    border: 1px dashed #b2412e;
+    border-radius: 8px;
+
+    padding: 17px 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .desktopStatLabel {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #8c2f20;
+    margin-bottom: 3px;
+  }
+
+  .desktopStatCard strong {
+    font-family: "VT323", monospace;
+    font-size: 42px;
+    line-height: 1;
+    color: #2b221a;
+  }
+
+  .desktopStatCard p {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10px;
+    color: #5a4e3e;
+    margin-top: 5px;
+  }
+
+  .desktopFocusCard {
+    min-height: 105px;
+
+    background: #f3ead3;
+    border: 1px dashed #8c2f20;
+    border-radius: 8px;
+
+    padding: 17px 24px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .desktopFocusLabel {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #8c2f20;
+    margin-bottom: 5px;
+  }
+
+  .desktopFocusCard h2 {
+    font-family: "Special Elite", cursive;
+    font-size: 20px;
+    color: #2b221a;
+    margin: 0 0 5px;
+  }
+
+  .desktopFocusCard p {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10px;
+    line-height: 1.5;
+    color: #5a4e3e;
+    margin: 0;
+  }
+
+  /* ================================
+     QUEUE
+     ================================ */
+
+  .queueSection {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .queueText {
+    padding-left: 0;
+    padding-top: 28px;
+    font-size: 15px;
+  }
+
+  .queueLine {
+    max-width: none;
+    margin-left: 15px;
+  }
+
+  .Queue-List {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 10px;
+  }
+
+  .queueItemContainer {
+    width: 100%;
+    margin: 0;
+    min-height: 78px;
+    padding: 15px 20px 15px 28px;
+  }
+
+  .queueCardTopic {
+    font-size: 16px;
+    margin-right: 20px;
+  }
+
+  .queueCardCategory {
+    font-size: 11px;
+  }
+
+  .queueCardLastAttempt {
+    font-size: 10px;
+  }
+
+  .queueLastScore {
+    font-size: 30px;
+  }
+
+  /* ================================
+     ADD TOPIC BUTTON
+     ================================ */
+
+  .addNewTopicButton {
+    position: absolute;
+    right: 65px;
+    bottom: 150px;
+
+    width: 82px;
+    height: 82px;
+
+    margin: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    border: 3px solid #2b221a;
+
+    box-shadow: 5px 5px 0 #2b221a;
+  }
+
+  .addNewTopicButton img {
+    width: 38px;
+    height: 38px;
+    padding: 0;
+  }
+
+  /* ================================
+     EMPTY QUEUE
+     ================================ */
+
+  .emptyQueueCard {
+    width: min(700px, 80%);
+    margin: 35px auto 0;
+
+    padding: 40px 50px;
+
+    text-align: center;
+
+    background: #fffdf7;
+    border: 1px dashed #b2412e;
+    border-radius: 10px;
+  }
+
+  .emptyQueueEmoji {
+    font-size: 42px;
+    margin-bottom: 12px;
+  }
+
+  .emptyQueueCard h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .emptyQueueCard p {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  /* ================================
+     FOOTER
+     ================================ */
+
+  .footer {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 160px;
+
+    margin-top: auto;
+    padding: 18px 0 28px;
+
+    font-size: 15px;
+  }
+
+  .homefooterContainer,
+  .itemsContainer,
+  .addContainer,
+  .statsContainer {
+    padding-top: 8px;
+    min-width: 70px;
+  }
+
+  /* Make ADD obvious on desktop */
+
+  .addContainer {
+    position: relative;
+  }
+
+  .addIcon {
+    font-size: 32px;
+    font-weight: bold;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .addText {
+    font-size: 13px;
+    font-weight: bold;
+  }
+
+  /* Keep stats visually consistent */
+
+  .statsIcon {
+    font-size: 23px;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .statsText {
+    font-size: 13px;
+  }
 }

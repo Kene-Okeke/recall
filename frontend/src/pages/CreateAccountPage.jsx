@@ -9,7 +9,7 @@ function CreateAccount() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const location = useLocation();
-  const { selectedDays, topicsPerSession } = location.state;
+  const { selectedDays, topicsPerSession } = location.state || {};
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {

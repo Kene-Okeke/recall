@@ -53,6 +53,15 @@ function Home() {
     getStreak();
   }, []);
 
+  // Calculate the average score from the topics already in the queue.
+  const averageScore =
+    queue.length > 0
+      ? Math.round(
+          queue.reduce((total, topic) => total + Number(topic.lastScore), 0) /
+            queue.length,
+        )
+      : 0;
+
   return (
     <>
       {" "}
@@ -63,6 +72,7 @@ function Home() {
           <h1 className="userName"> &gt; LOAD USER:&nbsp;{user} </h1>
           <h2 className="dueText">Due today</h2>
         </div>
+
         <div className="streakWrapper">
           <h1 className="streakNumber">{streak}</h1>
           <div className="streakRightText">
@@ -71,6 +81,55 @@ function Home() {
             <h4>keep the ribbon spinning</h4>
           </div>
         </div>
+
+        {/* Desktop dashboard information */}
+        <section className="desktopDashboard">
+          <div className="desktopStatCard">
+            <span className="desktopStatLabel">QUEUE</span>
+            <strong>{queue.length}</strong>
+            <p>topics waiting</p>
+          </div>
+
+          <div className="desktopStatCard">
+            <span className="desktopStatLabel">AVG SCORE</span>
+            <strong>{averageScore}</strong>
+            <p>current queue</p>
+          </div>
+
+          <div className="desktopStatCard">
+            <span className="desktopStatLabel">STREAK</span>
+            <strong>{streak}</strong>
+            <p>days active</p>
+          </div>
+
+          <div className="desktopFocusCard">
+            <span className="desktopFocusLabel">TODAY'S FOCUS</span>
+
+            {queue.length > 0 ? (
+              <>
+                <h2>
+                  {queue.length === 1
+                    ? "One topic waiting for you."
+                    : `${queue.length} topics waiting for you.`}
+                </h2>
+
+                <p>
+                  Take your time, review what you know, and keep the streak
+                  alive.
+                </p>
+              </>
+            ) : (
+              <>
+                <h2>Nothing waiting.</h2>
+
+                <p>
+                  Your queue is clear. Add a new topic whenever you're ready.
+                </p>
+              </>
+            )}
+          </div>
+        </section>
+
         <section className="queueSection">
           {" "}
           {/* this section is for the queue of tasks that are due today */}
@@ -125,12 +184,14 @@ function Home() {
             )}
           </section>
         </section>
+
         {/* add new topic button */}
         <div className="addNewTopicButton">
           <Link to="/first-topic">
             <img src="src/assets/icons/add-icon.png" alt="Add Topic" />
           </Link>
         </div>
+
         <section className="footer">
           <Link className="homelink" to="/">
             <div className="homefooterContainer">
@@ -150,11 +211,12 @@ function Home() {
               <div className="addText">ADD</div>
             </div>
           </Link>
-
-          <div className="statsContainer">
-            <div className="statsIcon">[▲]</div>
-            <div className="statsText">STATS</div>
-          </div>
+          <Link className="statsLink" to="/stats">
+            <div className="statsContainer">
+              <div className="statsIcon">[◰]</div>
+              <div className="statsText">STATS</div>
+            </div>
+          </Link>
         </section>
       </section>
     </>
