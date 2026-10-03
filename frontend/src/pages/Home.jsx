@@ -168,8 +168,8 @@ function Home() {
                         <h2 className="queueCardCategory">{topic.category}</h2>
 
                         <h3 className="queueCardLastAttempt">
-                          {topic.lastReviewed
-                            ? `Last try ${topic.lastReviewed}d ago`
+                          {topic.lastReviewed !== null
+                            ? `- Last try ${topic.lastReviewed} days ago`
                             : "Not reviewed yet"}
                         </h3>
                       </div>

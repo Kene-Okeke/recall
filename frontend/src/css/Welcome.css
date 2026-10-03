@@ -1,7 +1,10 @@
-.welcomeContainer {
-  color: black;
-  background: var(--inktext);
+.onboardContainer {
+  width: 100%;
+  min-height: 100vh;
   height: 100vh;
+  background-color: #2b221a;
+  color: black;
+  overflow: hidden;
 }
 
 .bootingGifs {

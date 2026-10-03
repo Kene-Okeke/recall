@@ -9,7 +9,7 @@ function Welcome() {
   };
   return (
     <>
-      <section className="welcomeContainer">
+      <section className="onboardContainer">
         <div className="bootingGifs">
           <span> &gt; BOOTING RECALL OS...</span>
           <span> &gt; LOADING MEMORY BANKS... OK</span>
