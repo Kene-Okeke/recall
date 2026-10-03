@@ -21,7 +21,9 @@ class User extends Authenticatable
     protected $fillable = [
         'username',
         'email',
-        'password'
+        'password',
+        'streak',
+        'last_streak_date',
     ];
     /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable;
@@ -36,6 +38,7 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'last_streak_date' => 'datetime',
         ];
     }
 

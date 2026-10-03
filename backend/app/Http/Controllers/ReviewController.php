@@ -46,6 +46,8 @@ class ReviewController extends Controller
             }
         }
 
+        
+
         if ($data['from_queue'] && $isStudyDay) {
 
             if (!$lastStreakDate || !$lastStreakDate->isSameDay($today)) {
@@ -56,6 +58,7 @@ class ReviewController extends Controller
                     'streak' => $streak,
                     'last_streak_date' => $today,
                 ]);
+
             }
         }
 

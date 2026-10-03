@@ -15,10 +15,6 @@ class QueueController extends Controller
         //now we can access all the data we need from user using the relationships
         $studySchedules = $user->studySchedules()->get();
 
-        $streak = $user->streak;
-        
-        $lastStreakDate = $user->last_streak_date;
-
         $today = Carbon::today();
 
         $todayNumber = $today->dayOfWeek;
@@ -53,10 +49,10 @@ class QueueController extends Controller
                     ->first();
 
                     
-                    $daysAgo = $lastReview->created_at->diffInDays($today);
+                   $daysAgo = $lastReview->created_at->startOfDay()->diffInDays($today);
 
 
-                if($reviewDate->isSameDay($today)){
+                if ($reviewDate->lessThanOrEqualTo($today)) {
 
                     $todayTopics[] = [
                         'id'=>$topic->id,
@@ -73,6 +69,7 @@ class QueueController extends Controller
                         'category' => $topic->category,
                         'nextReviewDate'=> $reviewDate,
                         'lastScore' => $lastReview->score,
+                        'lastReviewed' => $daysAgo,
                         
                     ];
 
