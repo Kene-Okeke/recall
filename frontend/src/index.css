@@ -11,3 +11,14 @@
   --ink-softsecondarytext: #5a4e3e;
   --whitecards: #fffdf7;
 }
+
+@keyframes pageIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -86,7 +86,7 @@ function CreateAccount() {
               type="text"
               name="username"
               id="username"
-              placeholder="okeke_dev"
+              placeholder="username"
               onChange={(e) => setUsername(e.target.value)}
             />
           </div>

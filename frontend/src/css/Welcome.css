@@ -5,6 +5,7 @@
   background-color: #2b221a;
   color: black;
   overflow: hidden;
+  animation: pageIn 0.35s ease-out;
 }
 
 .bootingGifs {

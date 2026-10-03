@@ -29,34 +29,34 @@ function SessionSize() {
       </section>
 
       <span style={{ fontSize: "13px" }}>
-        this decides how many due cards your queue pulls each time
+        Choose how many topics you want to review each time.
       </span>
 
       <div className="numberStackCont">
         <div className="numberCont">
           <div
-            className={`numberRow ${topicsPerSession === 5 ? "selected" : ""}`}
-            onClick={() => settopicsPerSession(5)}
+            className={`numberRow ${topicsPerSession === 2 ? "selected" : ""}`}
+            onClick={() => settopicsPerSession(2)}
           >
-            5
+            2
           </div>
           <div
-            className={`numberRow ${topicsPerSession === 10 ? "selected" : ""}`}
-            onClick={() => settopicsPerSession(10)}
+            className={`numberRow ${topicsPerSession === 4 ? "selected" : ""}`}
+            onClick={() => settopicsPerSession(4)}
           >
-            10
+            4
           </div>
           <div
-            className={`numberRow ${topicsPerSession === 15 ? "selected" : ""}`}
-            onClick={() => settopicsPerSession(15)}
+            className={`numberRow ${topicsPerSession === 6 ? "selected" : ""}`}
+            onClick={() => settopicsPerSession(6)}
           >
-            15
+            6
           </div>
           <div
-            className={`numberRow ${topicsPerSession === 20 ? "selected" : ""}`}
-            onClick={() => settopicsPerSession(20)}
+            className={`numberRow ${topicsPerSession === 8 ? "selected" : ""}`}
+            onClick={() => settopicsPerSession(8)}
           >
-            20
+            8
           </div>
         </div>
 

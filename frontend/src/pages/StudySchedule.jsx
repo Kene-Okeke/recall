@@ -52,7 +52,8 @@ function StudySchedule() {
         <section className="titleSection">
           <div className="scheduleText">&gt; STUDY_SCHEDULE</div>
           <div className="scheduleQuestion">
-            How many days <br />a week?
+            How many days a week <br />
+            do you want to recall?
           </div>
         </section>
 

@@ -11,6 +11,63 @@
   margin: 0;
   padding-top: 15px;
   box-sizing: border-box;
+  animation: pageIn 0.35s ease-out;
+}
+
+.addNewTopicButton {
+  position: relative; /* no offsets set, so this changes nothing visually — it just lets the callout anchor to the button */
+}
+
+.addTopicCallout {
+  position: absolute;
+  bottom: 110%;
+  right: -4px;
+  background: #2b221a; /* ink */
+  color: #e8a33d; /* mustard */
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  box-shadow: 2px 2px 0 #b2412e;
+  pointer-events: none; /* can never block a click on the button underneath */
+  animation: calloutFlash 1.4s ease-in-out infinite;
+}
+
+.addTopicCallout::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  right: 14px;
+  border: 5px solid transparent;
+  border-top-color: #2b221a;
+}
+
+@keyframes calloutFlash {
+  0%,
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 0.4;
+    transform: translateY(-3px);
+  }
+}
+.queueSection {
+  min-height: 250px;
+}
+
+.home-stats {
+  margin-top: 8px;
+}
+
+.home-footer-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 * {
@@ -28,7 +85,7 @@
   font-size: 13.5px;
   font-weight: bold;
   font-family: "JetBrains Mono", monospace;
-  padding-bottom: 15px;
+  padding-bottom: 25px;
 }
 
 .userInformation {
@@ -54,7 +111,7 @@
   max-width: 550px;
   width: 90%;
   padding-top: 7px;
-  padding-bottom: 9px;
+  padding-bottom: 20px;
   margin-top: 12px;
   margin-left: 20px;
   border-radius: 15px;
@@ -62,10 +119,10 @@
 
 .streakNumber {
   font-family: "VT323", monospace;
-  font-size: 67px;
+  font-size: 68px;
   color: #e8a33d;
   padding-left: 15px;
-  padding-top: 2px;
+  padding-top: 5px;
   font-weight: bold;
   text-shadow: 0 0 6px rgba(232, 163, 61, 0.55);
 }
@@ -317,13 +374,16 @@
 
 @media (min-width: 901px) {
   .homeContainer {
-    min-height: 100vh;
-    height: 100vh;
+    max-height: 100vh;
+    height: auto;
     overflow: hidden;
     padding: 35px 60px 0;
     background-color: #fbf5e6;
   }
 
+  .homefoot {
+    margin-top: auto;
+  }
   .userInformation {
     padding-top: 10px;
   }
@@ -372,6 +432,10 @@
     margin-left: 0;
     display: block;
     text-align: right;
+  }
+
+  .home-footer-section {
+    margin-top: 100px;
   }
 
   .streakRightText h2 {
@@ -489,6 +553,7 @@
     width: 100%;
     max-width: 1100px;
     margin: 0 auto;
+    min-height: 420px;
   }
 
   .queueText {

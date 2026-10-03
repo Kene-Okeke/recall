@@ -3,6 +3,7 @@
   height: 100vh;
   padding-top: 50px;
   padding-left: 20px;
+  animation: pageIn 0.35s ease-out;
 }
 
 .createText {

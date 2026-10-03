@@ -2,6 +2,7 @@ import "../css/FirstTopicScr.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import FirstRevScreen from "./FirstRevScreen.jsx";
+import Footer from "../components/Footer";
 
 import Button from "../components/Button.jsx";
 
@@ -87,6 +88,9 @@ function FirstTopicScr() {
           ADD TOPIC →
         </Button>
       </div>
+      <section className="firstfoot">
+        <Footer statsController={"first-stats"} />
+      </section>
     </section>
   );
 }

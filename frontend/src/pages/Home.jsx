@@ -2,6 +2,7 @@
 import "../css/Home.css"; // importing the stylesheet for the home component
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import Footer from "../components/Footer";
 
 function Home() {
   const [queue, setQueue] = useState([]);
@@ -187,36 +188,19 @@ function Home() {
 
         {/* add new topic button */}
         <div className="addNewTopicButton">
+          {queue.length === 0 && (
+            <div className="addTopicCallout">ADD TOPIC</div>
+          )}
           <Link to="/first-topic">
             <img src="src/assets/icons/add-icon.png" alt="Add Topic" />
           </Link>
         </div>
 
-        <section className="footer">
-          <Link className="homelink" to="/">
-            <div className="homefooterContainer">
-              <div className="homeIcon">[■]</div>
-              <div className="homeText">HOME</div>
-            </div>
-          </Link>
-
-          <div className="itemsContainer">
-            <div className="itemsIcon">[≡]</div>
-            <div className="itemsText">ITEMS</div>
-          </div>
-
-          <Link className="footerAddTopic" to="/first-topic">
-            <div className="addContainer">
-              <div className="addIcon">[+]</div>
-              <div className="addText">ADD</div>
-            </div>
-          </Link>
-          <Link className="statsLink" to="/stats">
-            <div className="statsContainer">
-              <div className="statsIcon">[◰]</div>
-              <div className="statsText">STATS</div>
-            </div>
-          </Link>
+        <section className="home-footer-section">
+          <Footer
+            statsController={"home-stats"}
+            styleName={"homefoot"}
+          ></Footer>
         </section>
       </section>
     </>

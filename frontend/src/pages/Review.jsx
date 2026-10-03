@@ -2,6 +2,7 @@ import "../css/Review.css";
 import ScoreSlider from "../components/ScoreSlider";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import Footer from "../components/Footer";
 
 function Review() {
   const [notes, setNotes] = useState("");
@@ -93,7 +94,7 @@ function Review() {
           </label>
         </section>
 
-        <div className="terminalPanel">
+        <div className="terminalPanel reviewTerminalPanel">
           <div className="row">
             <span>STARTING EASE</span>
             <span className="dots">..............</span>
@@ -109,6 +110,9 @@ function Review() {
         <button className="completeReviewButton" onClick={submitReview}>
           COMPLETE REVIEW →
         </button>
+        <section className="revFoot">
+          <Footer statsController={"rev-stats"}></Footer>
+        </section>
       </section>
     </>
   );

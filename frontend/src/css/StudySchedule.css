@@ -16,6 +16,7 @@
   padding-left: 22px;
   padding-right: 25px;
   color: var(--inktext);
+  animation: pageIn 0.35s ease-out;
 }
 
 .scheduleQuestion {
@@ -24,7 +25,7 @@
   font-weight: 600;
   line-height: 1.2;
   color: var(--inktext);
-
+  padding-top: 5px;
   padding-bottom: 30px;
   word-spacing: 3px;
 }

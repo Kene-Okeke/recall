@@ -8,6 +8,7 @@ use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\QueueController;
 use App\Http\Controllers\StreakController;
 use App\Http\Controllers\StatsController;
+use Illuminate\Http\Request;
 
 
 
@@ -27,3 +28,13 @@ Route::middleware('auth:sanctum')->get(
     '/stats/topics/{topicId}',
     [StatsController::class, 'getTopicStats']
 );
+Route::middleware('auth:sanctum')->post('/logout', function (Request $request) {
+    Auth::guard('web')->logout();
+
+    $request->session()->invalidate();
+    $request->session()->regenerateToken();
+
+    return response()->json([
+        'message' => 'Logged out successfully'
+    ]);
+});

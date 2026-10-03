@@ -1,5 +1,6 @@
 import "../css/Welcome.css";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Welcome() {
   const navigate = useNavigate();
@@ -35,8 +36,9 @@ function Welcome() {
           <button className="getStartedButton" onClick={handleContinue}>
             GET STARTED
           </button>
-
-          <button className="loginButton">I ALREADY HAVE AN ACCOUNT→</button>
+          <Link to="/login">
+            <button className="loginButton">I ALREADY HAVE AN ACCOUNT→</button>
+          </Link>
         </section>
       </section>
     </>
