@@ -192,7 +192,7 @@ function Home() {
             <div className="addTopicCallout">ADD TOPIC</div>
           )}
           <Link to="/first-topic">
-            <img src="src/assets/icons/add-icon.png" alt="Add Topic" />
+            <img src="/icons/add-icon.png" alt="Add Topic" />
           </Link>
         </div>
 
