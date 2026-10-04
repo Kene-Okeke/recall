@@ -16,7 +16,7 @@
 
 .addNewTopicButton {
   position: relative;
-  margin-top: -20px;
+  margin-top: -40px;
   /* no offsets set, so this changes nothing visually — it just lets the callout anchor to the button */
 }
 
@@ -70,6 +70,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  margin-top: -5px;
 }
 
 * {
@@ -116,7 +117,7 @@
   margin-top: 12px;
   margin-left: 20px;
   border-radius: 15px;
-  padding-bottom: 7px;
+  padding-bottom: 15px;
 }
 
 .streakNumber {
