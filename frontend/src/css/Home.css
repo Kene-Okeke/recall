@@ -9,7 +9,7 @@
   overflow: hidden;
   background-color: #fbf5e6;
   margin: 0;
-  padding-top: 6px;
+  padding-top: 2px;
   box-sizing: border-box;
   animation: pageIn 0.35s ease-out;
 }
@@ -112,7 +112,7 @@
   background-color: #b2412e;
   max-width: 550px;
   width: 90%;
-  padding-top: 7px;
+  padding-top: 5px;
   margin-top: 12px;
   margin-left: 20px;
   border-radius: 15px;
@@ -393,7 +393,7 @@
   .userName {
     padding-left: 0;
     font-size: 15px;
-    padding-bottom: 18px;
+    padding-bottom: 5px;
   }
 
   .userInformation h2 {
@@ -638,7 +638,7 @@
     width: min(700px, 80%);
     margin: 35px auto 0;
 
-    padding: 20px 50px;
+    padding: 10px 30px;
 
     text-align: center;
 
