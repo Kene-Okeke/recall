@@ -5,7 +5,7 @@
 .homeContainer {
   display: flex;
   flex-direction: column;
-  height: 104vh;
+  height: 100vh;
   overflow: hidden;
   background-color: #fbf5e6;
   margin: 0;

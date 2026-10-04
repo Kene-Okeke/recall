@@ -4,7 +4,7 @@
   flex-direction: column;
   position: relative;
   background: var(--paperbackground);
-  height: 107vh;
+  height: 115vh;
   animation: pageIn 0.35s ease-out;
 }
 
