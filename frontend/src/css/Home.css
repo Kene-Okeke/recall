@@ -9,13 +9,15 @@
   overflow: hidden;
   background-color: #fbf5e6;
   margin: 0;
-  padding-top: 15px;
+  padding-top: 6px;
   box-sizing: border-box;
   animation: pageIn 0.35s ease-out;
 }
 
 .addNewTopicButton {
-  position: relative; /* no offsets set, so this changes nothing visually — it just lets the callout anchor to the button */
+  position: relative;
+  margin-top: -20px;
+  /* no offsets set, so this changes nothing visually — it just lets the callout anchor to the button */
 }
 
 .addTopicCallout {
@@ -114,6 +116,7 @@
   margin-top: 12px;
   margin-left: 20px;
   border-radius: 15px;
+  padding-bottom: 7px;
 }
 
 .streakNumber {
@@ -635,7 +638,7 @@
     width: min(700px, 80%);
     margin: 35px auto 0;
 
-    padding: 40px 50px;
+    padding: 20px 50px;
 
     text-align: center;
 
