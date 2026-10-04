@@ -31,5 +31,6 @@
 }
 
 .buttonContainer {
-  padding-top: 10px;
+  padding-top: 0px;
+  margin-top: -10px;
 }
