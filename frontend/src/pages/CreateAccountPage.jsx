@@ -71,14 +71,6 @@ function CreateAccount() {
 
   return (
     <section className="mainContainer">
-      <div className="progressDots">
-        <span className="dot active"></span>
-        <span className="dot"></span>
-        <span className="dot"></span>
-        <span className="dot"></span>
-        <span className="dot"></span>
-      </div>
-
       <section className="welcomeContainer">
         <div className="welcomeText">&gt; CREATE_ACCOUNT</div>
         <div className="punchDetailsStatement">
