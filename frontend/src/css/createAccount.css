@@ -155,6 +155,10 @@
     margin-bottom: 28px;
   }
 
+  .passwordBox {
+    margin-top: -30px;
+  }
+
   .userNameBox label,
   .emailBox label,
   .passwordBox label {
