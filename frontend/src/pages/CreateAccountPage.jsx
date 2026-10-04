@@ -19,12 +19,18 @@ function CreateAccount() {
     setErrors({});
     setGeneralError("");
 
+    // Initialize Laravel Sanctum CSRF cookie
+    await fetch(import.meta.env.VITE_API_URL + "/sanctum/csrf-cookie", {
+      credentials: "include",
+    });
+
     const response = await fetch(
       import.meta.env.VITE_API_URL + "/api/create-account",
       {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Accept: "application/json",
         },
         credentials: "include",
         body: JSON.stringify({
@@ -56,6 +62,7 @@ function CreateAccount() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Accept: "application/json",
         },
         credentials: "include",
         body: JSON.stringify({
@@ -71,6 +78,7 @@ function CreateAccount() {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            Accept: "application/json",
           },
           credentials: "include",
           body: JSON.stringify({
