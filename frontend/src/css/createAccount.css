@@ -183,4 +183,8 @@
   .signUpButtonCont h2 {
     font-size: 15px;
   }
+
+  .signUpButtonCont .mainButton {
+    margin-top: 0;
+  }
 }
