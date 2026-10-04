@@ -376,7 +376,7 @@
     max-height: 100vh;
     height: auto;
     overflow: hidden;
-    padding: 35px 60px 0;
+    padding: 15px 60px 0;
     background-color: #fbf5e6;
   }
 
@@ -552,7 +552,7 @@
     width: 100%;
     max-width: 1100px;
     margin: 0 auto;
-    min-height: 300px;
+    min-height: 210px;
   }
 
   .queueText {
