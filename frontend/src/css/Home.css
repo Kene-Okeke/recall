@@ -68,7 +68,7 @@
 
 .home-footer-section {
   min-height: 100vh;
-  display: flex;
+  display: none; /* hidden on mobile — MobileNav takes over down here */
   flex-direction: column;
   margin-top: 0px;
   padding-bottom: 7px;
@@ -383,6 +383,10 @@
     overflow: hidden;
     padding: 15px 60px 0;
     background-color: #fbf5e6;
+  }
+
+  .home-footer-section {
+    display: flex; /* bring the real footer back on desktop */
   }
 
   .homefoot {

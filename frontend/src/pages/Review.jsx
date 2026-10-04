@@ -15,7 +15,7 @@ function Review() {
   const { topicId, topicTitle, fromQueue } = location.state;
 
   const submitReview = async (e) => {
-    const response = await fetch("/api/review", {
+    const response = await fetch(import.meta.env.VITE_API_URL + "/api/review", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       credentials: "include",

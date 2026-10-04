@@ -12,9 +12,12 @@ function StatsScr() {
 
   useEffect(() => {
     const getTopics = async () => {
-      const response = await fetch("/api/stats/topics", {
-        credentials: "include",
-      });
+      const response = await fetch(
+        import.meta.env.VITE_API_URL + "/api/stats/topics",
+        {
+          credentials: "include",
+        },
+      );
 
       const data = await response.json();
 
@@ -27,9 +30,12 @@ function StatsScr() {
   const handleTopicClick = async (topic) => {
     setSelectedTopic(topic);
 
-    const response = await fetch(`/api/stats/topics/${topic.id}`, {
-      credentials: "include",
-    });
+    const response = await fetch(
+      import.meta.env.VITE_API_URL + `/api/stats/topics/${topic.id}`,
+      {
+        credentials: "include",
+      },
+    );
 
     const data = await response.json();
 

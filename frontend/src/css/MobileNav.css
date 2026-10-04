@@ -1,0 +1,81 @@
+.mobileNavWrap {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 50;
+}
+
+.mobileNavTrigger {
+  width: 42px;
+  height: 42px;
+
+  background: #2b221a; /* ink */
+  color: #e8a33d; /* mustard */
+  border: 2px solid #2b221a;
+  border-radius: 10px;
+
+  font-family: "JetBrains Mono", monospace;
+  font-size: 14px;
+  font-weight: 700;
+
+  box-shadow: 3px 3px 0 #b2412e;
+  cursor: pointer;
+}
+
+.mobileNavPanel {
+  position: absolute;
+  top: 52px;
+  right: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  background: #2b221a;
+  border-radius: 10px;
+  padding: 10px;
+  min-width: 140px;
+
+  box-shadow: 3px 3px 0 #b2412e;
+  animation: pageIn 0.2s ease-out;
+}
+
+.mobileNavItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 8px 10px;
+  border-radius: 6px;
+
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+
+  color: #8a7c68; /* dimmed ink-soft on dark */
+  font-family: "JetBrains Mono", monospace;
+}
+
+.mobileNavIcon {
+  font-size: 15px;
+  width: 18px;
+  text-align: center;
+}
+
+.mobileNavLabel {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.mobileNavItem.active {
+  color: #e8a33d; /* mustard */
+  background: rgba(232, 163, 61, 0.1);
+}
+
+@media (min-width: 901px) {
+  .mobileNavWrap {
+    display: none;
+  }
+}

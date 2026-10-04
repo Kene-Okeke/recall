@@ -13,7 +13,7 @@ function FirstRevScreen() {
   /* this is the async function that allows us to post our first review topic
    */
   const submitReview = async (e) => {
-    const response = await fetch("/api/review", {
+    const response = await fetch(import.meta.env.VITE_API_URL + "/api/review", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       credentials: "include",

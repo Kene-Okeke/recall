@@ -15,43 +15,52 @@ function CreateAccount() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const response = await fetch("/api/create-account", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-      body: JSON.stringify({
-        username,
-        email,
-        password,
-      }),
-    });
-
-    // if user account creation works then post onboarding details first session size
-    if (response.ok) {
-      const sessionSizeResponse = await fetch("/api/saveSessionSize", {
+    const response = await fetch(
+      import.meta.env.VITE_API_URL + "/api/create-account",
+      {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         credentials: "include",
         body: JSON.stringify({
-          topics_per_session: topicsPerSession,
+          username,
+          email,
+          password,
         }),
-      });
+      },
+    );
 
-      if (sessionSizeResponse.ok) {
-        const scheduledDaysresponse = await fetch("/api/saveSchedule", {
+    // if user account creation works then post onboarding details first session size
+    if (response.ok) {
+      const sessionSizeResponse = await fetch(
+        import.meta.env.VITE_API_URL + "/api/saveSessionSize",
+        {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           credentials: "include",
           body: JSON.stringify({
-            selectedDays,
+            topics_per_session: topicsPerSession,
           }),
-        });
+        },
+      );
+
+      if (sessionSizeResponse.ok) {
+        const scheduledDaysresponse = await fetch(
+          import.meta.env.VITE_API_URL + "/api/saveSchedule",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            credentials: "include",
+            body: JSON.stringify({
+              selectedDays,
+            }),
+          },
+        );
 
         if (scheduledDaysresponse.ok) {
           navigate("/");

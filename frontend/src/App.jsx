@@ -10,13 +10,15 @@ import SessionSize from "./pages/SessionSize.jsx";
 import Welcome from "./pages/Welcome.jsx";
 import Review from "./pages/Review.jsx";
 import StatsScr from "./pages/StatsScr.jsx";
+import Entry from "./pages/Entry.jsx";
 
 import { Routes, Route } from "react-router-dom";
 function App() {
   return (
     <Routes>
+      <Route path="/" element={<Entry />} />
       <Route path="/first-topic" element={<FirstTopicScr />} />
-      <Route path="/" element={<Home />} />
+      <Route path="/home" element={<Home />} />
       <Route path="/login" element={<LoginScr />} />
       <Route path="/first-rev" element={<FirstRevScreen />} />
       <Route path="/create-account" element={<CreateAccount />} />

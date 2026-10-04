@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Footer({ styleName, statsController }) {
   const handleLogout = async () => {
-    await fetch("/api/logout", {
+    await fetch(import.meta.env.VITE_API_URL + "/api/logout", {
       method: "POST",
       credentials: "include",
     });
@@ -12,7 +12,7 @@ function Footer({ styleName, statsController }) {
   };
   return (
     <section className={`footer ${styleName || ""} `}>
-      <Link to="/">
+      <Link to="/home">
         <div className="homefooterContainer">
           <div classname="homeIcon">[■]</div>
           <div classname="homeText">HOME</div>

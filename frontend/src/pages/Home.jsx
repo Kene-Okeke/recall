@@ -3,6 +3,7 @@ import "../css/Home.css"; // importing the stylesheet for the home component
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Footer from "../components/Footer";
+import MobileNav from "../components/MobileNav";
 
 function Home() {
   const [queue, setQueue] = useState([]);
@@ -14,9 +15,12 @@ function Home() {
 
   useEffect(() => {
     const getQueue = async () => {
-      const response = await fetch("/api/showQueue", {
-        credentials: "include",
-      });
+      const response = await fetch(
+        import.meta.env.VITE_API_URL + "/api/showQueue",
+        {
+          credentials: "include",
+        },
+      );
 
       const data = await response.json();
       console.log(data);
@@ -42,9 +46,12 @@ function Home() {
 
   useEffect(() => {
     const getStreak = async () => {
-      const response = await fetch("/api/getStreak", {
-        credentials: "include",
-      });
+      const response = await fetch(
+        import.meta.env.VITE_API_URL + "/api/getStreak",
+        {
+          credentials: "include",
+        },
+      );
 
       const data = await response.json();
 
@@ -68,6 +75,7 @@ function Home() {
       {" "}
       {/* This is white space */}
       {/* these closures "<>" are used for react to capture and compose jsx */}
+      <MobileNav />
       <section className="homeContainer">
         <div className="userInformation">
           <h1 className="userName"> &gt; LOAD USER:&nbsp;{user} </h1>

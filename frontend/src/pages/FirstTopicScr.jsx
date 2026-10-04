@@ -14,17 +14,20 @@ function FirstTopicScr() {
   const handleAddTopic = async (e) => {
     e.preventDefault();
 
-    const response = await fetch("/api/addTopic", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+    const response = await fetch(
+      import.meta.env.VITE_API_URL + "/api/addTopic",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify({
+          title,
+          category,
+        }),
       },
-      credentials: "include",
-      body: JSON.stringify({
-        title,
-        category,
-      }),
-    });
+    );
 
     console.log(response);
 
