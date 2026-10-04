@@ -6,6 +6,23 @@
   animation: pageIn 0.35s ease-out;
 }
 
+.fieldError {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  color: #b2412e; /* rust */
+  margin-top: 4px;
+}
+
+.formError {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  color: #fffdf7;
+  background: #8c2f20; /* rust-dark */
+  border-radius: 6px;
+  padding: 10px 12px;
+  margin-bottom: 14px;
+}
+
 .progressDots {
   display: flex;
   gap: 6px;

@@ -8,12 +8,16 @@ function CreateAccount() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState({});
+  const [generalError, setGeneralError] = useState("");
   const location = useLocation();
   const { selectedDays, topicsPerSession } = location.state || {};
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setErrors({});
+    setGeneralError("");
 
     const response = await fetch(
       import.meta.env.VITE_API_URL + "/api/create-account",
@@ -31,10 +35,38 @@ function CreateAccount() {
       },
     );
 
+    // handle validation / server errors instead of silently doing nothing
+    if (!response.ok) {
+      const data = await response.json();
+
+      if (response.status === 422 && data.errors) {
+        setErrors(data.errors);
+      } else {
+        setGeneralError(
+          data.message || "Something went wrong. Please try again.",
+        );
+      }
+      return;
+    }
+
     // if user account creation works then post onboarding details first session size
-    if (response.ok) {
-      const sessionSizeResponse = await fetch(
-        import.meta.env.VITE_API_URL + "/api/saveSessionSize",
+    const sessionSizeResponse = await fetch(
+      import.meta.env.VITE_API_URL + "/api/saveSessionSize",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify({
+          topics_per_session: topicsPerSession,
+        }),
+      },
+    );
+
+    if (sessionSizeResponse.ok) {
+      const scheduledDaysresponse = await fetch(
+        import.meta.env.VITE_API_URL + "/api/saveSchedule",
         {
           method: "POST",
           headers: {
@@ -42,29 +74,13 @@ function CreateAccount() {
           },
           credentials: "include",
           body: JSON.stringify({
-            topics_per_session: topicsPerSession,
+            selectedDays,
           }),
         },
       );
 
-      if (sessionSizeResponse.ok) {
-        const scheduledDaysresponse = await fetch(
-          import.meta.env.VITE_API_URL + "/api/saveSchedule",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            credentials: "include",
-            body: JSON.stringify({
-              selectedDays,
-            }),
-          },
-        );
-
-        if (scheduledDaysresponse.ok) {
-          navigate("/");
-        }
+      if (scheduledDaysresponse.ok) {
+        navigate("/");
       }
     }
   };
@@ -80,6 +96,8 @@ function CreateAccount() {
       </section>
 
       <section className="accountForm">
+        {generalError && <p className="formError">{generalError}</p>}
+
         <form id="signupForm" onSubmit={handleSubmit}>
           <div className="userNameBox">
             <label htmlFor="username">USERNAME</label>
@@ -90,6 +108,9 @@ function CreateAccount() {
               placeholder="username"
               onChange={(e) => setUsername(e.target.value)}
             />
+            {errors.username && (
+              <p className="fieldError">{errors.username[0]}</p>
+            )}
           </div>
 
           <div className="emailBox">
@@ -101,6 +122,7 @@ function CreateAccount() {
               placeholder="you@example.com"
               onChange={(e) => setEmail(e.target.value)}
             />
+            {errors.email && <p className="fieldError">{errors.email[0]}</p>}
           </div>
 
           <div className="passwordBox">
@@ -112,6 +134,9 @@ function CreateAccount() {
               placeholder="........"
               onChange={(e) => setPassword(e.target.value)}
             />
+            {errors.password && (
+              <p className="fieldError">{errors.password[0]}</p>
+            )}
           </div>
         </form>
       </section>
