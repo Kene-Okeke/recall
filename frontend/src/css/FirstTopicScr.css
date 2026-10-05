@@ -99,10 +99,13 @@
 .first-stats {
   margin-top: 7px;
 }
+
 .firstfoot {
   margin-left: -20px;
   margin-top: 10px;
+  display: none; /* hidden on mobile — MobileNav takes over */
 }
+
 .topicCont {
   margin-top: 40px;
   min-height: 360px;
@@ -115,6 +118,10 @@
 @media (min-width: 901px) {
   .firstTopicContainer {
     padding: 35px 60px 0;
+  }
+
+  .firstfoot {
+    display: flex; /* bring the real footer back on desktop */
   }
 
   .progressDots {

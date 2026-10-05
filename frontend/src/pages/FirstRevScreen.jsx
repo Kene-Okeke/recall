@@ -1,5 +1,6 @@
 import "../css/FirstRevScreen.css";
 import ScoreSlider from "../components/ScoreSlider";
+import MobileNav from "../components/MobileNav";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
@@ -13,10 +14,15 @@ function FirstRevScreen() {
   /* this is the async function that allows us to post our first review topic
    */
   const submitReview = async (e) => {
+    const token = localStorage.getItem("recall_token");
+
     const response = await fetch(import.meta.env.VITE_API_URL + "/api/review", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${token}`,
+      },
       body: JSON.stringify({
         score,
         topic_id: topicId,
@@ -33,6 +39,8 @@ function FirstRevScreen() {
   return (
     <>
       <section className="mainContainer">
+        <MobileNav />
+
         <div className="firstReviewDetails">
           <h1 className="firstReviewText"> &gt; FIRST_REVIEW</h1>
           <h2 className="reviewTopic">{title}</h2>
@@ -47,35 +55,39 @@ function FirstRevScreen() {
           <div className="scorerangeSection">
             <h2
               className={`firstRange ${score === 20 ? "active" : ""}`}
-              onClick={(e) => {
+              onClick={() => {
                 setScore(20);
               }}
             >
               0–39
             </h2>
+
             <h2
               className={`secondRange ${score === 57 ? "active" : ""}`}
-              onClick={(e) => {
+              onClick={() => {
                 setScore(57);
               }}
             >
               40–74
             </h2>
+
             <h2
               className={`thirdRange ${score === 88 ? "active" : ""}`}
-              onClick={(e) => {
+              onClick={() => {
                 setScore(88);
               }}
             >
               75–100
             </h2>
           </div>
+
           <section className="honestSection">
             <span className="honestText">
               be honest — this just sets your starting point
             </span>
           </section>
         </div>
+
         <section className="scoreSection">
           <div className="scoreSlidercont">
             <ScoreSlider score={score} setScore={setScore} />
@@ -84,6 +96,7 @@ function FirstRevScreen() {
 
         <section className="addnotesSection">
           <h2>✏️FEEL FREE TO ADD A NOTE</h2>
+
           <label>
             <textarea
               name="notes"
@@ -101,6 +114,7 @@ function FirstRevScreen() {
             <span className="dots">..............</span>
             <span className="val">2.5</span>
           </div>
+
           <div className="row">
             <span>FIRST INTERVAL</span>
             <span className="dots">..............</span>

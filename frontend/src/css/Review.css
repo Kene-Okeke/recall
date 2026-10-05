@@ -6,6 +6,9 @@
   padding-left: 33px;
   animation: pageIn 0.35s ease-out;
 }
+.revFoot {
+  display: none;
+}
 
 * {
   margin: 0;
@@ -279,6 +282,10 @@
 
   .scorecardsContainer {
     width: 100%;
+  }
+
+  .revFoot {
+    display: flex;
   }
 
   .scorerangeSection {

@@ -16,8 +16,8 @@ function LoginScr() {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Accept: "application/json",
       },
-      credentials: "include",
       body: JSON.stringify({
         email,
         password,
@@ -28,6 +28,8 @@ function LoginScr() {
     console.log(data);
 
     if (response.ok) {
+      localStorage.setItem("recall_token", data.token);
+
       navigate("/");
     }
   };

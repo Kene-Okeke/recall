@@ -12,6 +12,10 @@
   animation: pageIn 0.35s ease-out;
 }
 
+.footerCont {
+  display: none;
+}
+
 .statsFooterItem {
   padding-top: -2px;
   display: flex;
@@ -326,6 +330,9 @@
 ========================= */
 
 @media (min-width: 901px) {
+  .footerCont {
+    display: flex;
+  }
   .statsContainer {
     width: 100%;
     min-height: 100vh;

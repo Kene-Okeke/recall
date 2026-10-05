@@ -1,6 +1,7 @@
 import "../css/StatsScr.css";
 import RecallChart from "../components/RecallChart";
 import Footer from "../components/Footer";
+import MobileNav from "../components/MobileNav";
 import DottedLine from "../components/DottedLine";
 import { useEffect, useState } from "react";
 
@@ -12,10 +13,15 @@ function StatsScr() {
 
   useEffect(() => {
     const getTopics = async () => {
+      const token = localStorage.getItem("recall_token");
+
       const response = await fetch(
         import.meta.env.VITE_API_URL + "/api/stats/topics",
         {
-          credentials: "include",
+          headers: {
+            Accept: "application/json",
+            Authorization: `Bearer ${token}`,
+          },
         },
       );
 
@@ -30,10 +36,15 @@ function StatsScr() {
   const handleTopicClick = async (topic) => {
     setSelectedTopic(topic);
 
+    const token = localStorage.getItem("recall_token");
+
     const response = await fetch(
       import.meta.env.VITE_API_URL + `/api/stats/topics/${topic.id}`,
       {
-        credentials: "include",
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${token}`,
+        },
       },
     );
 
@@ -55,6 +66,8 @@ function StatsScr() {
 
   return (
     <section className="statsContainer">
+      <MobileNav />
+
       {!selectedTopic ? (
         <>
           <div className="statsHeader">
@@ -167,7 +180,6 @@ function StatsScr() {
               <span>NEXT REVIEW</span>
               <span className="dots">..............</span>
               <span className="statValue">
-                {" "}
                 {new Date(topicStats.topic.nextReview).toLocaleDateString(
                   "en-US",
                 )}
