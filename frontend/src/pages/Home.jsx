@@ -15,10 +15,15 @@ function Home() {
 
   useEffect(() => {
     const getQueue = async () => {
+      const token = localStorage.getItem("recall_token");
+
       const response = await fetch(
         import.meta.env.VITE_API_URL + "/api/showQueue",
         {
-          credentials: "include",
+          headers: {
+            Accept: "application/json",
+            Authorization: `Bearer ${token}`,
+          },
         },
       );
 
@@ -46,10 +51,15 @@ function Home() {
 
   useEffect(() => {
     const getStreak = async () => {
+      const token = localStorage.getItem("recall_token");
+
       const response = await fetch(
         import.meta.env.VITE_API_URL + "/api/getStreak",
         {
-          credentials: "include",
+          headers: {
+            Accept: "application/json",
+            Authorization: `Bearer ${token}`,
+          },
         },
       );
 
@@ -60,7 +70,6 @@ function Home() {
 
     getStreak();
   }, []);
-
   // Calculate the average score from the topics already in the queue.
   const averageScore =
     queue.length > 0
