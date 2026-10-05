@@ -6,10 +6,17 @@ function MobileNav() {
   const [open, setOpen] = useState(false);
 
   const handleLogout = async () => {
+    const token = localStorage.getItem("recall_token");
+
     await fetch(import.meta.env.VITE_API_URL + "/api/logout", {
       method: "POST",
-      credentials: "include",
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${token}`,
+      },
     });
+
+    localStorage.removeItem("recall_token");
 
     window.location.href = "/login";
   };
