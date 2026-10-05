@@ -7,12 +7,26 @@ function Entry() {
 
   useEffect(() => {
     const checkAuth = async () => {
+      const token = localStorage.getItem("recall_token");
+
+      // No token means the user is not logged in.
+      if (!token) {
+        setLoading(false);
+        return;
+      }
+
       const response = await fetch(import.meta.env.VITE_API_URL + "/api/user", {
-        credentials: "include",
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${token}`,
+        },
       });
 
       if (response.ok) {
         setLoggedIn(true);
+      } else {
+        // Token is no longer valid.
+        localStorage.removeItem("recall_token");
       }
 
       setLoading(false);
