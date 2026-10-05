@@ -14,14 +14,15 @@ class AuthController extends Controller
             'password'=>'required',
         ]);
 
-        if(Auth::attempt($credentials)) {
-           $request->session()->regenerate();
+       if (Auth::attempt($credentials)) {
+            $user = Auth::user();
+
+            $token = $user->createToken('recall')->plainTextToken;
 
             return response()->json([
-                'message' => 'Login successful',
+            'message' => 'Login successful',
+            'token' => $token,
             ]);
-
-            
         }
 
         return response()->json([
@@ -29,12 +30,12 @@ class AuthController extends Controller
         ], 401);
     }
 
-    public function createAccount(Request $request){
-
+    public function createAccount(Request $request)
+    {
         $credentials = $request->validate([
-            'username'=> 'required|string',
-            'email'=>'required|email|unique:users,email',
-            'password'=> 'required|string',
+            'username' => 'required|string',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|string',
         ]);
 
         $user = User::create([
@@ -43,10 +44,11 @@ class AuthController extends Controller
             'password' => Hash::make($credentials['password']),
         ]);
 
-        Auth::login($user);
+        $token = $user->createToken('recall')->plainTextToken;
 
         return response()->json([
-            'message'=> 'Account created successfully',
-        ],201);
+            'message' => 'Account created successfully',
+            'token' => $token,
+        ], 201);
     }
 }

@@ -12,6 +12,7 @@ use Illuminate\Notifications\Notifiable;
 use App\Models\Topic;
 use App\Models\StudySchedule;
 use App\Models\SessionSize;
+use Laravel\Sanctum\HasApiTokens;
 
 #[Fillable(['name', 'email', 'password'])]
 #[Hidden(['password', 'remember_token'])]
@@ -26,7 +27,7 @@ class User extends Authenticatable
         'last_streak_date',
     ];
     /** @use HasFactory<UserFactory> */
-    use HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable;
 
     /**
      * Get the attributes that should be cast.
