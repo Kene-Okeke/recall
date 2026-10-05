@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 
 
 
-Route::middleware('web')->post('/login',[AuthController::class, 'login']);
+Route::post('/login',[AuthController::class, 'login']);
 Route::middleware('auth:sanctum')->post('/addTopic',[TopicController::class, 'addTopic']);
 Route::middleware('auth:sanctum')->post('/review',[ReviewController::class, 'Review']);
 Route::middleware('auth:sanctum')->get('/showQueue',[QueueController::class, 'showQueue']);
@@ -29,10 +29,7 @@ Route::middleware('auth:sanctum')->get(
     [StatsController::class, 'getTopicStats']
 );
 Route::middleware('auth:sanctum')->post('/logout', function (Request $request) {
-    Auth::guard('web')->logout();
-
-    $request->session()->invalidate();
-    $request->session()->regenerateToken();
+    $request->user()->currentAccessToken()?->delete();
 
     return response()->json([
         'message' => 'Logged out successfully'
