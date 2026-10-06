@@ -157,7 +157,7 @@ function StatsScr() {
             })}
           </div>
 
-          <div className="terminalPanel">
+          <div className="stats-terminalPanel">
             <div className="statRow">
               <span>REPETITIONS</span>
               <span className="dots">..............</span>
