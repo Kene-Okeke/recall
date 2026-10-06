@@ -7,6 +7,7 @@ import Footer from "../components/Footer";
 
 function Review() {
   const [notes, setNotes] = useState("");
+  const [submitting, setSubmitting] = useState(false);
 
   const [score, setScore] = useState(0);
 
@@ -16,6 +17,13 @@ function Review() {
   const { topicId, topicTitle, fromQueue } = location.state;
 
   const submitReview = async (e) => {
+    e.preventDefault();
+    if (submitting) {
+      return;
+    }
+
+    setSubmitting(true);
+
     const token = localStorage.getItem("recall_token");
 
     const response = await fetch(import.meta.env.VITE_API_URL + "/api/review", {
@@ -35,6 +43,8 @@ function Review() {
 
     if (response.ok) {
       navigate("/");
+    } else {
+      setSubmitting(false);
     }
   };
 
@@ -122,8 +132,12 @@ function Review() {
           </div>
         </div>
 
-        <button className="completeReviewButton" onClick={submitReview}>
-          COMPLETE REVIEW →
+        <button
+          className="completeReviewButton"
+          onClick={submitReview}
+          disabled={submitting}
+        >
+          {submitting ? "SAVING" : "COMPLETE REVIEW →"}
         </button>
 
         <section className="revFoot">
