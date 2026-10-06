@@ -105,7 +105,10 @@
   box-sizing: border-box;
   background: #2b221a;
   border-radius: 10px;
-  padding-bottom: 120px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
   color: #e8a33d;
   font-family: "JetBrains Mono", monospace;
   font-size: 11px;
