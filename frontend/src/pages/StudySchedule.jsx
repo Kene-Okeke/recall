@@ -68,7 +68,7 @@ function StudySchedule() {
         </div>
 
         <div className="buttonContainer">
-          <Button onClick={handleContinue}>CONTINUE - 3 DAYS/WEEK →</Button>
+          <Button onClick={handleContinue}>CONTINUE →</Button>
         </div>
       </div>
     </>
