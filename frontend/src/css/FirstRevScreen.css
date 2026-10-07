@@ -16,6 +16,9 @@
 }
 
 /* FIRST REVIEW HEADER */
+.firstterminalPanel {
+  display: none;
+}
 
 .firstReviewText {
   color: var(--rust-darkpressed);
