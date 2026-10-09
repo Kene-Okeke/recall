@@ -48,6 +48,9 @@ class QueueController extends Controller
                     ->latest()
                     ->first();
 
+                if(!$lastReview){
+                    continue;
+                }
                     
                    $daysAgo = $lastReview->created_at->startOfDay()->diffInDays($today);
 
