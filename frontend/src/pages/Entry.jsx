@@ -15,6 +15,7 @@ function Entry() {
         return;
       }
 
+      //check if the local storage token is still valid by sending a request to our route protected by laravle sanctum
       const response = await fetch(import.meta.env.VITE_API_URL + "/api/user", {
         headers: {
           Accept: "application/json",

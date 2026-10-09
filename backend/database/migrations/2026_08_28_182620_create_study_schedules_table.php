@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('study_schedules', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->unsignedtinyInteger('day_of_week');
+            $table->unsignedTinyInteger('day_of_week');
             $table->timestamps();
         });
     }

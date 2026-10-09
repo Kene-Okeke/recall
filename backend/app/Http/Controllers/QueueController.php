@@ -95,6 +95,7 @@ class QueueController extends Controller
 
                 $queue = collect($todayTopics)->concat($upcomingtoAdd)->values();
             }else{
+                //these are the topics that will show on the queue 
                 $queue = collect($todayTopics)->take($sessionSize->topics_per_session)->values();
             }
         }

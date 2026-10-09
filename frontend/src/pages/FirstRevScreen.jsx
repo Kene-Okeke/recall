@@ -108,7 +108,7 @@ function FirstRevScreen() {
           </label>
         </section>
 
-        <div className="firstterminalPanel">
+        <div className="first-terminal-Panel">
           <div className="row">
             <span>STARTING EASE</span>
             <span className="dots">..............</span>
