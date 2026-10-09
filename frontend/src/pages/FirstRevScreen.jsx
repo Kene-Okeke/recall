@@ -10,32 +10,47 @@ function FirstRevScreen() {
   const [notes, setNotes] = useState("");
   const [score, setScore] = useState(0);
   const navigate = useNavigate();
+  const [reviewed, setReviewed] = useState(false);
 
   /* this is the async function that allows us to post our first review topic
    */
-  const submitReview = async (e) => {
-    const token = localStorage.getItem("recall_token");
+  const submitReview = async () => {
+    if (reviewed) return;
 
-    const response = await fetch(import.meta.env.VITE_API_URL + "/api/review", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify({
-        score,
-        topic_id: topicId,
-        notes,
-        from_queue: false,
-      }),
-    });
+    setReviewed(true);
 
-    if (response.ok) {
+    try {
+      const token = localStorage.getItem("recall_token");
+
+      const response = await fetch(
+        import.meta.env.VITE_API_URL + "/api/review",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            score,
+            topic_id: topicId,
+            notes,
+            from_queue: false,
+          }),
+        },
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to save the first review.");
+      }
+
       navigate("/");
+    } catch (error) {
+      console.error("First review failed:", error);
+      setReviewed(false);
+      alert("Your review could not be saved. Please try again.");
     }
   };
-
   return (
     <>
       <section className="mainContainer">
@@ -122,7 +137,11 @@ function FirstRevScreen() {
           </div>
         </div>
 
-        <button className="completeReviewButton" onClick={submitReview}>
+        <button
+          className="completeReviewButton"
+          onClick={submitReview}
+          disabled={reviewed}
+        >
           COMPLETE REVIEW →
         </button>
       </section>

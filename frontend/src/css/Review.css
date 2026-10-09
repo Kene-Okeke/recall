@@ -225,7 +225,6 @@
 }
 
 .completeReviewButton:active {
-  box-shadow: none;
   transform: translate(3px, 3px);
 }
 
@@ -243,8 +242,8 @@
   .mainContainer {
     position: relative;
     min-height: 100vh;
-    height: 100vh;
-    overflow: hidden;
+    height: auto;
+    overflow: visible;
     padding: 45px 70px 35px;
   }
 
@@ -283,11 +282,12 @@
   .scorecardsContainer {
     width: 100%;
   }
-
   .revFoot {
+    position: relative;
     display: flex;
+    margin: 20px -30px 0;
+    padding-top: 20px;
   }
-
   .scorerangeSection {
     display: flex;
     justify-content: center;
@@ -432,25 +432,21 @@
   /* COMPLETE REVIEW */
 
   .completeReviewButton {
-    position: absolute;
+    position: relative;
+    left: auto;
+    bottom: auto;
+    transform: none;
 
-    left: 50%;
-    transform: translateX(-50%);
-
-    bottom: 35px;
-
+    display: block;
     width: 900px;
     max-width: 90%;
 
-    margin: 0 !important;
-
+    margin: 28px auto 20px;
     padding: 24px 0;
 
     font-size: 18px;
     letter-spacing: 1.2px;
-
     border-radius: 9px;
-
     box-shadow: 4px 4px 0 #2b221a;
   }
 }

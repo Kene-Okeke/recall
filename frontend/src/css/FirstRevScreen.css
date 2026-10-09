@@ -586,4 +586,10 @@
     max-width: 90%;
     margin: 20px auto 0;
   }
+
+  @media (min-width: 901px) {
+    .completeReviewButton:active {
+      transform: translateX(-50%) translate(3px, 3px);
+    }
+  }
 }
